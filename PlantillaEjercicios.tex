@@ -1,0 +1,456 @@
+\documentclass{article}
+%\documentclass{IEEEtran}
+\let\Tiny=\tiny
+%\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{pgf}
+\usepackage{latexsym}
+\usepackage{amssymb,amsmath}
+\usepackage{xspace}
+\usepackage[olditem,oldenum]{paralist}
+\usepackage{tikz}
+\usetikzlibrary{snakes,arrows,shapes}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows,automata}
+\usepackage[T1]{fontenc}
+\usepackage{psfrag}
+\usepackage{multirow}
+\usepackage{xmpmulti}
+\usepackage[absolute, overlay]{textpos}
+\usepackage{pgfpages}
+\usepackage{pgf}
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{color}
+
+%Para los enumerados con letra
+\usepackage{enumerate}
+
+\usetikzlibrary{arrows,automata,decorations,shapes}
+\usetikzlibrary{snakes,arrows,shapes}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows,automata}
+\usetikzlibrary{mindmap,trees}
+\usetikzlibrary{chains,fit,shapes}
+
+\input{short}
+
+
+\newcommand{\cut}[1]{}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\blu}[1]{\textcolor{blue}{#1}}
+\newcommand{\grn}[1]{\textcolor{green}{#1}}
+\newcommand{\mgn}[1]{\textcolor{magenta}{#1}}
+\newcommand{\orn}[1]{\textcolor{orange}{#1}}
+\newcommand{\vio}[1]{\textcolor{violet}{#1}}
+\newcommand{\prp}[1]{\textcolor{purple}{#1}}
+
+%%%Hueco de puntos
+\newcommand{\hupu}{ \ensuremath{\ldots \ldots \ldots \ldots}}
+
+
+\newenvironment{bibblock}[2][]%
+{
+\begin{block}{{\small \color{Orange}#1}}
+\footnotesize
+\begin{thebibliography}{100}
+\bibitem{#2}
+}
+{\end{thebibliography}\end{block}}
+
+
+\newcommand{\myalertblock}[1]{
+\begin{tikzpicture}
+\draw node[rounded corners,draw=red,fill=yellow,text=red]{#1};
+\end{tikzpicture}
+}
+
+\newcommand{\myalertblockTwo}[1]{
+\begin{tikzpicture}
+\draw node[rounded corners,purple,fill,text=white]{#1};
+\end{tikzpicture}
+}
+
+
+\title{MODELOS DE COMPUTACIÓN \\Plantilla para Tarea de Autómatas, Lenguajes y Computabilidad\\ Marzo 2025} 
+%suprime números de página
+%\pagenumbering{gobble}
+\pagestyle{plain}
+\date{}
+\begin{document}
+\maketitle
+\hrule
+%\begin{itemize}
+% %\item[]
+% \item[]\textbf{NOMBRE DEL GRUPO:}
+% \item[]Estudiante 1:
+% \item[]Estudiante 2:
+% \item[]Estudiante 3:
+% 
+% %\item[] 
+% \
+% %\item[] 
+%\end{itemize}
+\hrule
+\setcounter{tocdepth}{3} % Muestra hasta subsubsecciones en la tabla de contenidos
+\tableofcontents
+
+\section{Ejercicios}
+\label{sec:ejercicios}
+\textbf{Atención:} Este documento \textbf{no es el enunciado} de la tarea; sólo proporciona el texto de los enunciados para que sea más cómodo aludir a ellos en la presentación, si decides hacerla en latex (beamer). Para ello, usa el fichero .tex llamado PlantillaEjercicios.tex. El enunciado en si así como los criterios de valoración están en el documento EnunciadoTareaLenguajesYComputabilidad.pdf.
+
+
+\subsection{Cuarto de Punto}
+\label{sec:cuartopunto}
+\subsubsection*{Ejercicio 1} \textbf{Con los modelos de computación  siguientes,  escribe una lista  ordenada en modo ascendente según su capacidad expresiva. Entre un modelo y el siguiente establece  la relación  ($\equiv$) o ($\prec$) o  según corresponda.} 
+
+\begin{enumerate}[I)]
+
+\item El $\lambda-$Cálculo.
+
+\item El modelo dado por $(Q,\Sigma,\Gamma,\delta,A_0,q_0,F)$, donde  $Q$ es un conjunto finito de estados, 
+  $\Sigma$ y $\Gamma$ son alfabetos, $\delta:Q\times \Sigma_\epsilon\times\Gamma_\epsilon\rightarrow 2^{(Q\times\Gamma_\epsilon)}$ es  una función de transición, $A_0$ es el símbolo inicial de la pila, y $q_0\in Q$ es el estado inicial. 
+
+\item El modelo dado por $(Q,\Sigma,\Gamma,\delta,A_0,q_0,q_f)$, donde  $Q$ es un conjunto finito de estados, $\Sigma$ y 
+$\Gamma$ son alfabetos, $\Sigma_\epsilon=\Sigma \cup \{\epsilon\}$, $\Gamma_\epsilon=\Gamma \cup \{\epsilon\}$, $\delta:Q\times \Sigma_\epsilon\times\Gamma_\epsilon\rightarrow 2^{(Q\times\Gamma_\epsilon)}$ es  una  función de transición, $A_0$ es el símbolo inicial de la pila, y $q_0\in Q$ es el estado inicial. 
+
+\item Máquina de Turing con cinta finita a la izquierda e infinita a la derecha, que sólo tiene movimiento hacia la derecha y un movimiento que retorna el cabezal de lectura/escritura a la celdilla más a la izquierda.
+
+\item El lenguaje de programación Python.
+
+\item El modelo dado por $(Q,\Sigma,\Gamma,\delta,A_0,q_0,F)$, donde  $Q$ es un conjunto finito de estados, 
+  $\Sigma$ y $\Gamma$ son alfabetos, $\delta:Q\times \Sigma_\epsilon\times\Gamma_\epsilon\rightarrow(Q\times\Gamma_\epsilon)$ es  una función de transición, que cumple que para cada $q \in Q$, cada $a \in \Sigma$ y cada $x \in \Gamma$, exactamente una de estas reglas de transición $\delta(q,a,x),\delta(q,a,\epsilon),\delta(q,\epsilon,x),\delta(q,\epsilon,\epsilon)$ es distinta de  $\emptyset$;
+  $A_0$ es el símbolo inicial de la pila, $q_0\in Q$ es el estado inicial, y $F\subseteq Q$ es el conjunto de  estados finales. 
+
+\item El modelo dado por $(Q,\Sigma,\Gamma,\delta,q_0,q_f)$, donde $Q$ es un conjunto finito de estados, $\Sigma$ y
+$\Gamma$ son alfabetos de modo que $B\in\Gamma$,  $\Sigma\subseteq\Gamma$ y $B \notin \Sigma$,  
+$\delta:Q\times\Gamma\rightarrow 2^{Q\times\Gamma\times\{L,R, S\}}$ es  una función de transición, 
+$q_0\in Q$ es el estado inicial, y $q_f\in Q$ es el estado final. 
+
+\item Un lenguaje de programación Turing-completo.
+
+\item El modelo dado por $(Q,\Sigma,\Gamma,\delta,q_0,q_f)$, donde $Q$ es un conjunto finito de estados, $\Sigma$ y
+$\Gamma$ son alfabetos de modo que $B\in\Gamma$,  $\Sigma\subseteq\Gamma$ y $B \notin \Sigma$, $q_0\in Q$ es el estado inicial, y $q_f\in Q$ es el estado final y 
+la función de transición es
+
+\begin{small}
+$\delta:Q\times\underbrace{\Gamma\times\ldots\times\Gamma}_k\rightarrow Q\times\underbrace{\Gamma\times\{L,R,S\}\times\ldots\times\Gamma\times\{L,R,S\}}_k$.
+\end{small} 
+
+\item El modelo dado por  $(Q,\Sigma_\epsilon,\delta,q_0,F)$, donde  $Q$ es un   conjunto finito de estados, $\Sigma$ es un alfabeto,
+$\Sigma_\epsilon=\Sigma \cup \{\epsilon\}$, $\delta:Q\times \Sigma_\epsilon\rightarrow 2^{Q}$ 
+es una funci\'on de transición, $q_0\in Q$ es el  estado inicial, y $F\subseteq Q$ es el conjunto de estados finales.
+
+\end{enumerate}
+
+
+\subsubsection*{Ejercicio 2}
+\textbf{Agrupa juntas las descripciones equivalentes:}
+\begin{enumerate}[1.]
+\item $\mathcal{P}( \Sigma ^ *)$
+\item Conjunto de los lenguajes regulares
+\item  Conjunto de los problemas de decisión computables
+\item $\lpdav$
+\item  Conjunto de los lenguajes altamente indecidibles
+\item  Conjunto de los lenguajes Turing-reconocibles
+\item $U_{\Sigma}$
+\item  Conjunto de lenguajes reconocibles por PDAs no deterministas por pila vacía
+\item  Conjunto de los lenguajes recursivamente enumerables
+\item  Conjunto de los lenguajes cuyos complementarios son Turing-reconocibles
+\item  Conjunto de los lenguajes generables por gramáticas libres de contexto
+\item  Conjunto de los lenguajes para los que existe una MT determinista de dos cintas que los decide
+\item  Conjunto de lenguajes para los que se puede construir un algoritmo en java capaz de reconocer las palabras que pertenecen al lenguaje
+\item  Conjunto de lenguajes semidecidibles 
+\item $\ldfa$
+\item  Clase en la que se situaría todo lenguaje $L$ que cumple que $|L|$ es finito
+\item $\lpda$
+\item $\lgr$
+\item  Conjunto de lenguajes reconocibles por PDAs deterministas por estado final 
+\item $\lnfa$
+\item  Conjunto de lenguajes reconocibles por DFAs 
+\item  Conjunto de los lenguajes que se pueden describir mediante expresiones regulares
+\item  Clase formada por todo lenguaje $L$ que cumple que tanto él como su complementario tienen máquinas de turing que los enumeran 
+\item  Conjunto de lenguajes reconocibles por NDFAs
+\item  Clase formada por todo lenguaje $L$ para el que existe una K-MT que es capaz de aceptar todas las palabras de fuera de $L$ y de no aceptar todas las que están dentro de $L$
+\item  Universo de los lenguajes basados en el alfabeto $\Sigma$
+\item  Conjunto de las partes de $\Sigma^*$
+\item  Clase en la que se situaría un lenguaje $L$ para el que tenemos una  MT que acepta todas y sólo aquellas cadenas que no están en $L$
+\item $2^{\Sigma^*}$
+\item  Conjunto formado por todo lenguaje $L$ para el que se puede construir un algoritmo en python capaz de aceptar las palabras que pertenecen a $L$ y de rechazar las que no pertenecen a $L$
+
+\end{enumerate}
+
+
+
+%\underline{\textbf{Plantilla Solución:}} 
+%
+%\begin{itemize}
+%\item Forman parte del mismo grupo:
+%\begin{itemize}\item Número \item Número \item $\ldots$ \end{itemize} 
+%\item Forman parte del mismo grupo:
+%\begin{itemize}\item Número \item Número \item $\ldots$ \end{itemize}
+%\item Forman parte del mismo grupo:
+%\begin{itemize}\item Número \item Número \item $\ldots$ \end{itemize}
+%\item  (Añadir tantos grupos como haga falta)
+%\begin{itemize}\item Número \item Número \end{itemize} \item$\ldots$ \end{itemize}
+%
+
+%\end{enumerate}
+%
+%\pagebreak
+
+\subsubsection*{Ejercicio 3} \textbf{Diseña en JFLAP una máquina de Turing del tipo que quieras para decidir el lenguaje} $\{x+x |x\in\{0,1\}^*\}$. Explícala en base a la traza de ejecución de una cadena.
+
+%\underline{\textbf{Plantilla Solución:}}
+%\begin{center}
+%\begin{figure}[h]
+%	  \includegraphics[scale=0.8]{Ejercicio3.jpg}\caption{Explicación del funcionamiento de la MT del archivo Ejercicio3.jff}
+%  \end{figure}
+%\end{center}
+
+\subsubsection*{Ejercicio 4} \textbf{Demostrar MT $\equiv$ SMT. Así, describe lo más formalmente posible  el mecanismo para, a partir de una MT $M=(Q,\Sigma,\Gamma,\delta,q_0,q_f)$ conseguir la SMT equivalente $M'=(Q',\Sigma,\Gamma,\delta',q_0,q_f)$ y viceversa.}
+%
+%
+%\underline{\textbf{Plantilla Solución:}}
+%\begin{itemize}
+%\item Demostración de MT $\preceq$ SMT: \\ Dada la MT  $M=(Q,\Sigma,\Gamma,\delta,q_0,q_f)$, la SMT equivalente  $M'=(Q',\Sigma,\Gamma,\delta',q_0,q_f)$ tendrá  $\ldots$
+%
+%\item Demostración de SMT $\preceq$ MT: \\ Dada la SMT $M'=(Q',\Sigma,\Gamma,\delta',q_0,q_f)$, la MT equivalente $M=(Q,\Sigma,\Gamma,\delta,q_0,q_f)$   tendrá $\ldots$
+%\end{itemize}
+
+
+\subsubsection*{Ejercicio 5} \textbf{Escribe en pseudocódigo una máquina de Turing para demostrar que el siguiente lenguaje es $\ld$. Acompaña la máquina con la explicación de  los aspectos más relevantes.}
+$$HALT_{Q-steps}^{MT}=\{\langle M \rangle \mbox{ | M es MT y } \exists w \mbox{ con la que } M \mbox{ se detiene en }|Q| \mbox{ pasos o menos}  \}$$
+
+%\underline{\textbf{Plantilla Solución:}} La MT $R$ que Turing-reconoce puede describirse como sigue:\\\\
+%R: Con entrada $\langle M \rangle$:
+%\begin{enumerate}
+%	\item $\ldots$
+%	\item $\ldots$
+%	\begin{enumerate}		
+%			\item   $\ldots$
+%			\item   $\ldots$
+%	\end{enumerate}
+%	\item $\ldots$
+%\end{enumerate}
+%
+%\textbf{Explicación: }
+
+\subsubsection*{Ejercicio 6}
+\textbf{Escribe  una máquina de Turing para demostrar que el siguiente lenguaje es $\lr$. Acompaña la máquina con una explicación de los aspectos más relevantes.}
+$$ACC_{Q}^{MT}=\{\langle M \rangle \mbox{ | M es una MT y } |L(M)| \geq |Q| \mbox{ siendo Q el conjunto de estados de M}\}$$
+
+%\underline{\textbf{Plantilla Solución:}} La MT $R$ que Turing-reconoce puede describirse como sigue:\\\\
+%R: Con entrada $\langle M \rangle$:
+%\begin{enumerate}
+%	\item $\ldots$
+%	\item $\ldots$
+%	\begin{enumerate}		
+%			\item   $\ldots$
+%			\item   $\ldots$
+%	\end{enumerate}
+%	\item $\ldots$
+%\end{enumerate}
+%
+%\textbf{Explicación: }
+
+
+\subsubsection*{Ejercicio 7}\textbf{Demuestra por contraejemplo que no todo subconjunto de un lenguaje regular es regular y que no todo subconjunto de un lenguaje libre de contexto  es libre de contexto.}\\
+
+
+\subsubsection*{Ejercicio 8} \textbf{El conjunto $\mathcal{MT}$ de las máquinas de Turing  es numerable. La numeración de Gödel es prueba de ello. A partir del lenguaje simple que se ha dado en clase calcula el  número de Gödel de cada una de las instrucciones que componen este fragmento y del fragmento en si.Es posible que dos fragmentos distintos tengan el mismo número.?}
+\begin{enumerate}
+\item[] $V_1:=S(0)$
+\item[] $V_2:=S(V_1)$ 
+\item[] If $S(V_2)!=0$ Then $V_2:=0$
+\item[] If $S(V_1)=0$ Then $V_1:=S(V_2)$
+\item[] $V_1:=S(S(V_2))$
+\end{enumerate}
+
+
+\subsubsection*{Ejercicio 9} \textbf{La Máquina de Turing Universal (también llamada $U$), como todas la MTs, tiene un número de Gödel asociado. Aunque el número depende de la codificación elegida, investiga en Internet alguna versión del número de la MT Universal. Cuántos dígitos tiene? Explica cómo has llegado a la solución. 
+}
+
+\subsubsection*{Ejercicio 10}
+\textbf{Son decidibles los siguientes lenguajes? Y Turing-reconocibles? Justifica tus respuestas:}
+
+\begin{enumerate}[a)]
+\item  $\{<M> /\mbox{M es MT y  M es la única MT que acepta } L(M)\}$ 
+\item $\{<M> /\mbox{M es MT  y  se puede diseñar un programa en Java para reconocer } L(M)\}$
+
+\end{enumerate}
+
+%
+%\underline{\textbf{Plantilla Solución:}}
+%\begin{enumerate} [a)]
+%\item respuesta / justificación 
+%\item respuesta / justificación 
+%\item $\ldots$
+%\end{enumerate}
+
+
+
+
+\subsection{Medio Punto} 
+\label{sec:mediopunto}
+\subsubsection*{Ejercicio 11}
+
+\textbf{Sea $\Sigma=\{0,1,\$\}$. Sea el lenguaje $L=\{x\$x^R\$x | x \in \Sigma^*\}$. Demostrar que no es regular: primero explica el lenguaje poniendo algunas palabras ejemplo, luego explica los conceptos teóricos que te van a servir en la demostración, el método de demostración que vas a usar y, finalmente la demostración en si.}
+
+
+\subsubsection*{Ejercicio 12} \textbf{Sea $L= \{ 0^i 1^j 2^k |i,j,k \geq0 \mbox{ and si } i=1 \mbox{ entonces } j=k \} $. Este lenguaje no es regular. En este caso nos basta con que des una  demostración informal. Pero muestra que, sin embargo,  $L$ sí cumple el Lema del Bombeo para los Lenguajes Regulares.
+}
+
+\subsubsection*{Ejercicio 13}\textbf{Rellena cada casilla de la siguiente tabla con la clase \textbf{más específica} a la que pertenece el lenguaje  $\overline{L_1 \setminus L_2}$ siendo $L_1$ un lenguaje que cumple el supuesto expresado por su fila y $L_2$ siendo un lenguaje que cumple el supuesto dado por su columna. Si algún caso no se puede saber, puedes poner   $?$. \textbf{Justifica cada casilla.}}\\
+ 
+\begin{table}[h]
+ \begin{tabular}{|l|l|l|l|}
+ \hline
+ &&&\\
+ &$L_2 \in \lcf$ &$ L_2 \in \ld$ & $ L_2 \in \lr$\\
+ \hline
+ &&&\\
+  $ L1 \in \lreg$&(1)&(2)&(3)\\
+  \hline
+ &&&\\
+ $ L1 \subset L$, con $L \in \lcf$&(4)&(5)&(6)\\
+  \hline
+ &&&\\
+ $L1 \in CO-\lr $&(7)&(8)&(9)\\
+  \hline
+ &&&\\
+ $L1 \in \lr \cap CO-\lr$&(10)&(11)&(12)\\
+  \hline
+ &&&\\
+ $ L1 \in \lr \setminus CO-\lr$&(13)&(14)&(15)\\
+  \hline
+ \end{tabular}
+ 
+\end{table}
+
+% \underline{\textbf{Plantilla Solución:}}
+% \begin{itemize} 
+% \item (1) Justificación
+% \item (2) Justificación
+% \item (3) Justificación
+% \item $\ldots$
+% \end{itemize}
+% 
+ \subsubsection*{Ejercicio 14} \textbf{Se tienen las hipótesis de A a E  y se tienen las  conclusiones de I a V. Se pide conectar cada hipótesis con las conclusiones que se pueden deducir de cada una (pueden ser varias) y dar una breve explicación.}
+
+\textbf{Hipótesis:}
+
+\begin{enumerate}[A.]
+\item $\overline{L} \in CO-\lr$, $X$ es \lr-completo y $X \le_m  L$
+\item El cardinal de $L$ es un número natural
+\item $L \le_m  EQ^{DFA}$  
+\item $EQ^{MT} \le_m L$ 
+
+
+\item Existe una MT que acepta las cadenas que son de $L$ y una MT que acepta las cadenas que no son de $L$. 
+\end{enumerate}
+
+\textbf{Conclusiones:}
+
+\begin{enumerate}[I.]
+\item $L$ es  decidible.
+\item $L$ cumple el Lema de Bombeo para los Lenguajes  libres de contexto.
+\item se puede construir una MT que rechace las cadenas que son de $L$ y que acepte las cadenas que no son de $L$.
+
+\item $L$ no es recursivamente enumerable.
+\item $L$ es \lr-completo. 
+
+\end{enumerate}
+
+% 
+% \underline{\textbf{Plantilla Solución:}}
+%   \begin{table}[h]
+% \begin{tabular}{|l|lllll|}
+% \hline
+% Hipótesis& Conclusiones&&&&\\
+%  \hline
+% I&Dar una explicación de cada conclusión que se conecta&&&&\\ 
+% &&&&&\\
+%  \hline
+% II&&&&&\\
+% &&&&&\\
+%  \hline
+% III &&&&&\\
+% &&&&&\\
+%  \hline
+% IV&&&&&\\
+% &&&&&\\
+%  \hline
+% V &&&&&\\
+% &&&&&\\
+% \hline
+% \end{tabular}
+% 
+% \end{table}
+ 
+ 
+ \subsubsection*{Ejercicio 15} 
+ \textbf{Teoría: Demuestra la indecibilidad de $K$ y la indecibilidad del Problema de la Parada usando descripciones gráficas de las MTs.}
+ 
+\subsection{Tres Cuartos de Punto}
+\label{sec:trescuartospunto}
+\subsubsection*{Ejercicio 16} \textbf{Demuestra que la operación de clausura es cerrada en \lr.  Puedes usar una MT de alto nivel pero da una breve explicación y detalla los aspectos claves de su funcionamiento.}
+
+\subsubsection*{Ejercicio 17} \textbf{Justifica la verdad o falsedad de los siguientes enunciados:}
+\begin{enumerate}[a)]
+
+
+\item Sea $L_2 \in \lr$ y sea $L_1$ tal que $L_1 \subseteq L_2$. Entonces, si $\exists$ un autómata con pila $A$ tal que $L(A)=L_2$ entonces $L_1$ cumple el Lema de Bombeo para los Lenguajes Libres de Contexto. 
+\item Sea $L_2 \in \lr$ y sea $L_1$ tal que $L_1 \subseteq L_2$. Entonces, si no  existe una máquina de Turing con  STAY para decidir $L_1$ entonces no existe una máquina de Turing determinista de 2 cintas para decidir $L_2$.
+
+\item Sea $L_2 \in \lr$ y sea $L_1$ tal que $L_1 \subseteq L_2$. Entonces, si $L_2 \setminus L_1=\{\lambda\}$ se cumple que si $L_1 \in \ld$ entonces $L_2 \in \ld$ .
+
+\item Si $HALT^{MT} \le_m L$ entonces existe una MT  que acepte las cadenas de $L$ y rechace las cadenas que no son de $L$.
+\item El lenguaje $L_{exquisito}$, formado por aquellas MTs que aceptan menos cadenas de las que no aceptan, es indecidible. (además, descríbelo como los lenguajes de clase).  
+
+\item El lenguaje $$L_{not_{murciano}}=\{<M> / \mbox{M es MT  tal que } |w|\neq |pijo|,  \forall w \in L(M) \}$$  no es decidible según el Teorema de Rice.
+\item Si $L\le_m  Acc^{PDA}$ entonces existe una MT de 2 cintas que decide $L$. 
+
+\item Dada  una propiedad trivial $PT$ de los lenguajes \lr\  y $L_{PT}=\{<M> \mid L(M) \hbox{ M es una MT cuyo lenguaje no cumple } PT\}$, $L_{PT}$ es decidible y la MT que lo decide es una que siempre rechaza su entrada.
+
+\end{enumerate}
+
+%\underline{\textbf{Plantilla Solución:}}
+% \begin{enumerate} [a)]
+%\item respuesta / justificación 
+%\item respuesta / justificación 
+%\item respuesta / justificación 
+%\item $\ldots$
+% \end{enumerate}
+ 
+ 
+ \subsubsection*{Ejercicio 18}
+\textbf{Son decidibles los siguientes lenguajes? Y Turing-reconocibles? Justifica tus respuestas:}
+\begin{enumerate}[a)]
+ \item $\{<M> \mid \hbox{ M es una MT con } |L(M)| \geq 100\}$ (por mapping-reducción desde $HALT^{MT}$)
+
+\item $\{<M> \mid \hbox{ M es una MT con lenguaje finito}  \}$ (por mapping-reducción desde $\overline{HALT^{MT}}$)
+
+\end{enumerate}
+%
+%\underline{\textbf{Plantilla Solución:}}
+%\begin{enumerate} [a)]
+%\item respuesta / justificación 
+%\item respuesta / justificación 
+%\item $\ldots$
+%\end{enumerate}
+ \subsubsection*{Ejercicio 19} 
+\textbf{Sin usar el Teorema de Rice, demuestra la indecibilidad del lenguaje formado por MTs  cuyos lenguajes son expresables por ERs.}
+
+\subsection{Dos Puntos}
+\label{sec:dospuntos}
+\subsubsection*{Ejercicio 20} 
+\textbf{Demuestra la indecibilidad de los siguientes lenguajes sin usar el Teorema de Rice:}
+\begin{enumerate}[a)]
+\item Lenguaje formado por MTs  cuyos lenguajes son expresables por ERs.
+\item $\{<M> \mid \mbox{M es MT y  se puede diseñar  un PDA A tal que L(A)=L(M)}\}$.
+\item Lenguaje formado por MTs  cuyos lenguajes son infinitos.
+\end{enumerate}
+
+\end{document}
