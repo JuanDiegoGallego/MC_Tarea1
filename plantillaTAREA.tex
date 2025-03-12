@@ -45,7 +45,7 @@
 	\textit{Grupo 1.Subgrupo 9}\\
 	\sc{Juan Diego Gallego Nicolás}\\ % Autor 2
 	\textit{Grupo 1.Subgrupo 9}\\ 
-		\sc{Juan Diego Gallego Nicolás}\\ % Autor 2
+	\sc{Juan Diego Gallego Nicolás}\\ % Autor 3
 	\textit{Grupo 1. Subgrupo 9}\\ 
 }
 
@@ -155,7 +155,85 @@
 
 \begin{frame}{Sección Cuarto de Punto}{Ejercicio 1}
     \textbf{Solución}\\
-    La solución es...
+    \begin{itemize}
+        \item $\mathcal{AFD}$
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 1}
+    \textbf{Solución}\\
+    \begin{itemize}
+        \item $\mathcal{DFA} \equiv \mathcal{NDFA}$
+        \item[X)] El modelo dado por  $(Q,\Sigma_\epsilon,\delta,q_0,F)$, donde  $Q$ es un   conjunto finito de estados, $\Sigma$ es un alfabeto, $\Sigma_\epsilon=\Sigma \cup \{\epsilon\}$, $\delta:Q\times \Sigma_\epsilon\rightarrow 2^{Q}$ es una función de transición, $q_0\in Q$ es el  estado inicial, y $F\subseteq Q$ es el conjunto de estados finales.
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 1}
+    \textbf{Solución}\\
+    \begin{itemize}
+        \item $\mathcal{DFA} \equiv \mathcal{NDFA} \prec \mathcal{DPDA}$
+        \item[VI)] El modelo dado por $(Q,\Sigma,\Gamma,\delta,A_0,q_0,F)$, donde  $Q$ es un conjunto finito de estados, $\Sigma$ y $\Gamma$ son alfabetos, $\delta:Q\times \Sigma_\epsilon\times\Gamma_\epsilon\rightarrow(Q\times\Gamma_\epsilon)$ es  una función de transición, que cumple que para cada $q \in Q$, cada $a \in \Sigma$ y cada $x \in \Gamma$, exactamente una de estas reglas de transición $\delta(q,a,x),\delta(q,a,\epsilon),\delta(q,\epsilon,x),\delta(q,\epsilon,\epsilon)$ es distinta de  $\emptyset$; $A_0$ es el símbolo inicial de la pila, $q_0\in Q$ es el estado inicial, y $F\subseteq Q$ es el conjunto de  estados finales.
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 1}
+    \textbf{Solución}\\
+    \begin{itemize}
+        \item $\mathcal{DFA} \equiv \mathcal{NDFA} \prec \mathcal{DPDA} \prec \mathcal{PDA}$
+        \item[II)] El modelo dado por $(Q,\Sigma,\Gamma,\delta,A_0,q_0,F)$, donde  $Q$ es un conjunto finito de estados,  $\Sigma$ y $\Gamma$ son alfabetos, $\delta:Q\times \Sigma_\epsilon\times\Gamma_\epsilon\rightarrow 2^{(Q\times\Gamma_\epsilon)}$ es  una función de transición, $A_0$ es el símbolo inicial de la pila, y $q_0\in Q$ es el estado inicial. 
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 1}
+    \textbf{Solución}\\
+    \begin{itemize}
+        \item $\mathcal{DFA} \equiv \mathcal{NDFA} \prec \mathcal{DPDA} \prec \mathcal{PDA} \equiv \mathcal{PDA}^v$
+        \item[III)] El modelo dado por $(Q,\Sigma,\Gamma,\delta,A_0,q_0,q_f)$, donde  $Q$ es un conjunto finito de estados, $\Sigma$ y $\Gamma$ son alfabetos, $\Sigma_\epsilon=\Sigma \cup \{\epsilon\}$, $\Gamma_\epsilon=\Gamma \cup \{\epsilon\}$, $\delta:Q\times \Sigma_\epsilon\times\Gamma_\epsilon\rightarrow 2^{(Q\times\Gamma_\epsilon)}$ es  una  función de transición, $A_0$ es el símbolo inicial de la pila, y $q_0\in Q$ es el estado inicial.         
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 1}
+    \textbf{Solución}\\
+    \begin{itemize}
+        \item $\mathcal{DFA} \equiv \mathcal{NDFA} \prec \mathcal{DPDA} \prec \mathcal{PDA} \equiv \mathcal{PDA}^v \prec \mathcal{STM}$
+        \item[VII)] El modelo dado por $(Q,\Sigma,\Gamma,\delta,q_0,q_f)$, donde $Q$ es un conjunto finito de estados, $\Sigma$ y $\Gamma$ son alfabetos de modo que $B\in\Gamma$,  $\Sigma\subseteq\Gamma$ y $B \notin \Sigma$, $\delta:Q\times\Gamma\rightarrow 2^{Q\times\Gamma\times\{L,R, S\}}$ es  una función de transición, $q_0\in Q$ es el estado inicial, y $q_f\in Q$ es el estado final.     
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 1}
+    \textbf{Solución}\\
+    \begin{itemize}
+        \item $\mathcal{DFA} \equiv \mathcal{NDFA} \prec \mathcal{DPDA} \prec \mathcal{PDA} \equiv \mathcal{PDA}^v \prec \mathcal{STM} \equiv k-\mathcal{TM}$
+        \item[IX)] El modelo dado por $(Q,\Sigma,\Gamma,\delta,q_0,q_f)$, donde $Q$ es un conjunto finito de estados, $\Sigma$ y $\Gamma$ son alfabetos de modo que $B\in\Gamma$,  $\Sigma\subseteq\Gamma$ y $B \notin \Sigma$, $q_0\in Q$ es el estado inicial, y $q_f\in Q$ es el estado final y la función de transición es:
+        \begin{small}
+            $\delta:Q\times\underbrace{\Gamma\times\ldots\times\Gamma}_k\rightarrow Q\times\underbrace{\Gamma\times\{L,R,S\}\times\ldots\times\Gamma\times\{L,R,S\}}_k$.
+        \end{small} 
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 1}
+    \textbf{Solución}\\
+    \begin{itemize}
+        \item $\mathcal{DFA} \equiv \mathcal{NDFA} \prec \mathcal{DPDA} \prec \mathcal{PDA} \equiv \mathcal{PDA}^v \prec \mathcal{STM} \equiv k-\mathcal{TM} \equiv TCL$
+        \item[I)] El $\lambda-$Cálculo.
+        \item[IV)] Máquina de Turing con cinta finita a la izquierda e infinita a la derecha, que sólo tiene movimiento hacia la derecha y un movimiento que retorna el cabezal de lectura/escritura a la celdilla más a la izquierda.
+        \item[V)] El lenguaje de programación Python
+        \item[VIII)] Un lenguaje de programación Turing-completo 
+    \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
