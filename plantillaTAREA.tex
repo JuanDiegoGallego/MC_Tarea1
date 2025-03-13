@@ -326,10 +326,33 @@
     \textbf{Solución}\\
     \begin{itemize}
         \item $\mathcal{CO-RE}$
-        \item[6.] 
-        \item[9.]
-        \item[13.] 
-        \item[14.] 
+        \item[10.] Conjunto de los lenguajes cuyos complementarios son Turing-reconocibles 
+        \item[25.] Clase formada por todo lenguaje $L$ para el que existe una K-MT que es capaz de acteptar todas las palabras fuera de $L$ y de no aceptar todas las que están dentro de $L$
+        \item[28.] Clase en la que se situaría un lenguaje $L$ para el que tenemos una MT que acepta todas y sólo aquellas cadenas que no están en $L$
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 2}
+    \textbf{Solución}\\
+    \begin{itemize}
+        \item $\overline{\mathcal{RE}} \cap \overline{\mathcal{CO-RE}}$
+        \item[5.] Conjunto de los lenguajes altamente indecidibles
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 2}
+    \textbf{Solución}\\
+    \begin{itemize}
+        \item $U_\Sigma$
+        \item[1.] $\mathcal{P}(\Sigma^*)$
+        \item[7.] $U_Sigma$
+        \item[26.] Universo de los lenguajes basados en el alfabeto $\Sigma$
+        \item[27.] Conjunto de las partes de $\Sigma^*$
+        \item[29.] $2^{\Sigma^*}$
     \end{itemize}
 \end{frame}
 
@@ -347,7 +370,36 @@
 
 \begin{frame}{Sección Cuarto de Punto}{Ejercicio 3}
     \textbf{Solución}\\
-    La solución es...
+    \begin{figure}
+        \includegraphics[scale=0.25]{images/mct1ej3_1.png}
+    \end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 3}
+    \textbf{Solución}\\
+    \begin{figure}
+        \includegraphics[scale=0.25]{images/mct1ej3_2.png}
+    \end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 3}
+    \textbf{Solución}\\
+    \begin{figure}
+        \includegraphics[scale=0.25]{images/mct1ej3_3.png}
+    \end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 3}
+    \textbf{Solución}\\
+    \begin{figure}
+        \includegraphics[scale=0.25]{images/mct1ej3_4.png}
+    \end{figure}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -364,7 +416,60 @@
 
 \begin{frame}{Sección Cuarto de Punto}{Ejercicio 4}
     \textbf{Solución}\\
-    La solución es...
+    MT $\preceq$ SMT\\
+    Trivial. Una MT $M=(Q,\Sigma,\Gamma,\delta,q_o,q_f)$ es una SMT sin transiciones con stay.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 4}
+    \textbf{Solución}\\
+    SMT $\preceq$ MT\\
+    Sea $M=(Q,\Sigma,\Gamma,\delta,q_o,q_f)$ una SMT.\\ 
+    Si $M$ no tiene ninguna transición con stay, entonces $M$ es una MT.\\
+    Si no, para cada $q_i,q_j \in Q$ y $x,y \in \Gamma$ de forma que existe la transición $\delta(q_i,x)=(q_j,y,S)$ construimos un nuevo estado $q_{i,j,x,y}$.
+    Sea $Q'$ el conjunto de estados formado por $Q$ y todos los $q_{i,j,x,y}$.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 4}
+    \textbf{Solución}\\
+    Entonces, sobre la quintupla $(Q',\Sigma,\Gamma,q_0,q_f)$ definimos la función $\delta':Q' \times \Gamma \rightarrow Q \times \Gamma \times \{L,R\}$ definida por:\\
+    $\begin{cases}
+        \delta'(q_i,x) = (q_j,y,L) & \text{si } \delta(q_i,x) = (q_j,y,L),\\
+        \delta'(q_i,x) = (q_j,y,R) & \text{si } \delta(q_i,x) = (q_j,y,R),\\
+        \delta'(q_i,x) = (q_{i,j,x,y},y,R) & \text{si } \delta(q_i,x) = (q_j,y,S),\\
+        \delta'(q_{i,j,x,y},z) = (q_j,z,L) & \text{si } \delta(q_i,x) = (q_j,y,S) \text{ y } z \in \Gamma\\
+    \end{cases}$
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 4}
+    \textbf{Solución}\\
+    \begin{figure}
+        \includegraphics[scale=0.15]{images/mct1ej4_1.png}
+    \end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 4}
+    \textbf{Solución}\\
+    \begin{figure}
+        \includegraphics[scale=0.15]{images/mct1ej4_2.png}
+    \end{figure}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 4}
+    \textbf{Solución}\\
+    \begin{figure}
+        \includegraphics[scale=0.25]{images/mct1ej4_3.png}
+    \end{figure}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
