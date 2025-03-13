@@ -513,10 +513,6 @@
     \end{enumerate}
 \end{frame}
 
-%\begin{enumerate}[1.]
-%    \item $\forall \omega \in \Sigma^* : |\omega| \leq i$
-%\end{enumerate}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Sección Cuarto de Punto}{Ejercicio 6}
@@ -531,8 +527,35 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Sección Cuarto de Punto}{Ejercicio 6}
+    % \vskip -1cm % Para subir (-) o bajar el texto
     \textbf{Solución}\\
-    La solución es...
+    Observación: $\langle M \rangle \in ACC_{Q}^{MT} \Leftrightarrow \exists p_M \in \mathbb{N}$ de forma que M acepta al menos $Q$ palabras en menos de $p_M$ pasos.\\~\\
+    Dem:\\
+    $\Rightarrow$ Si $\langle M \rangle \in ACC_{Q}^{MT}$, existen al menos $Q$ palabras aceptadas por $M$.
+    Sean $\omega_1, ..., \omega_Q$ las primeras $Q$ palabras aceptadas por $M$ en un orden lexicográfico y sean $p_1,...,p_Q$ los pasos que requiere $M$ para validar las respectivas entradas.
+    Llamamos $p_M = max\{p_i:i=1..Q\}$. $p_M$ cumple la condición buscada.\\
+    $\Leftarrow M$ acepta al menos $Q$ palabras  $\Rightarrow |L(M)| \geq Q \Rightarrow \langle M \rangle \in ACC_{Q}^{MT}$  
+\end{frame}
+    
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 6}
+    \textbf{Solución}\\
+    \begin{enumerate}
+        \item Decodificar la entrada $\langle M \rangle$
+        \item Contar el número de estados y almacenar una constante CONTADOR
+        \item $\forall n \in \mathbb{N}$
+        \begin{enumerate}
+            \item Inicializar un contador CONTADOR2 a cero 
+            \item $\forall \omega \in \Sigma^* : |\omega| \leq n$
+            \begin{enumerate}
+                \item Simular hasta $n$ pasos de $M(\omega)$
+                \item Si $M(\omega)$ acepta en n pasos o menos Entonces CONTADOR++
+            \end{enumerate}
+            \item Si CONTADOR $\leq$ CONTADOR2 Entonces ACCEPT
+        \end{enumerate}
+    \end{enumerate}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -549,7 +572,14 @@
 
 \begin{frame}{Sección Cuarto de Punto}{Ejercicio 7}
     \textbf{Solución}\\
-    La solución es...
+    Supongamos $\Sigma = \{0,1,2\}$ y tomemos $L = U_\Sigma$ y $L'=\{0^n1^n2^n \mid n \geq 0 \}.$ Entonces $L' \subset L \text{ y } L \in \mathcal{REG} \subset \mathcal{CF}$ pero $L' \notin \mathcal{REG} \text{ y } L' \notin \mathcal{CF}.$
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 7}
+    \textbf{Solución}\\
+    De hecho, cualquier lenguaje infinito, independientemente del alfabeto, va a tener subconjuntos incluso altamente indecidibles. Esto se debe a que existe una cantidad numerable de lenguajes Turing-reconicibles, pero el cardinal de las partes de un lenguaje numerable es $2^{\mathcal{N}_0}.$
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
