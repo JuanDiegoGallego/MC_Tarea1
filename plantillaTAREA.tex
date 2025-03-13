@@ -474,6 +474,14 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 4}
+    \textbf{Solución}\\
+    Conclusión: apartir de una SMT $M=(Q,\Sigma,\Gamma,\delta,q_o,q_f)$ podemos construir una MT $M'=(Q',\Sigma,\Gamma,\delta',q_o,q_f)$ con un comportamiento análogo.
+    Por tanto, SMT $\preceq$ MT, como queríamos demostrar.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}{Sección Cuarto de Punto}{Ejercicio 5}
 % \vskip -1cm % Para subir (-) o bajar el texto
 \textbf{Enunciado}
@@ -487,8 +495,27 @@
 
 \begin{frame}{Sección Cuarto de Punto}{Ejercicio 5}
     \textbf{Solución}\\
-    La solución es...
+    Observación: $\langle M \rangle \in HALT_{Q-steps}^{MT}$ sii $\exists \omega \text{ con } | \omega | \leq Q+1$ con la que $M$ se detiene en Q pasos o menos.\\
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 5}
+    \textbf{Solución}\\
+    \begin{enumerate}
+        \item Decodificar la entrada $\langle M \rangle$
+        \item $\forall \omega \in \Sigma^* : |\omega| \leq Q+1$
+        \begin{enumerate}
+            \item Simular hasta $Q$ pasos de $M(\omega)$
+            \item Si $M(\omega)$ acepta o rechaza Entonces ACCEPT
+        \end{enumerate}
+        \item REJECT
+    \end{enumerate}
+\end{frame}
+
+%\begin{enumerate}[1.]
+%    \item $\forall \omega \in \Sigma^* : |\omega| \leq i$
+%\end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
