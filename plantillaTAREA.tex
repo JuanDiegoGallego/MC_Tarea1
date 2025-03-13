@@ -603,7 +603,237 @@
 
 \begin{frame}{Sección Cuarto de Punto}{Ejercicio 8}
     \textbf{Solución}\\
-    La solución es...
+    Recordemos que la numeración de Gödel que se da en las diapositivas de clase es la siguiente:
+    \begin{table}[h]
+        \centering
+        \renewcommand{\arraystretch}{1.2}
+        \begin{tabular}{|c|c|}
+            \hline
+            \textbf{Elemento} & \textbf{Código} \\
+            \hline
+            0 & 1 \\
+            \hline
+            \textit{S} & 2 \\
+            \hline
+            $V_1, V_2, V_3$ & 3,4,5 \\
+            \hline
+            Asignación & 6 \\
+            \hline
+            Test = 0 & 7 \\
+            \hline
+            Test $\neq$ 0 & 8 \\
+            \hline
+            If Then & 9 \\
+            \hline
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 8}
+    \textbf{Solución}\\
+    \begin{table}[h]
+        \centering
+        \renewcommand{\arraystretch}{1.2}
+        \begin{tabular}{|c|c|}
+            \hline
+            \textbf{Elemento} & \textbf{Código} \\
+            \hline
+            0 & 1 \\
+            \hline
+            \textit{S} & 2 \\
+            \hline
+            $V_1, V_2, V_3$ & 3,4,5 \\
+            \hline
+            Asignación & 6 \\
+            \hline
+            Test = 0 & 7 \\
+            \hline
+            Test $\neq$ 0 & 8 \\
+            \hline
+            If Then & 9 \\
+            \hline
+        \end{tabular}
+    \end{table}
+    \begin{itemize}
+        \item[1.] $V_1 \coloneqq S(0) \Rightarrow c_1 = 2^3 3^6 5^2 7^1 = 1,020,600$
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 8}
+    \textbf{Solución}\\
+    \begin{table}[h]
+        \centering
+        \renewcommand{\arraystretch}{1.2}
+        \begin{tabular}{|c|c|}
+            \hline
+            \textbf{Elemento} & \textbf{Código} \\
+            \hline
+            0 & 1 \\
+            \hline
+            \textit{S} & 2 \\
+            \hline
+            $V_1, V_2, V_3$ & 3,4,5 \\
+            \hline
+            Asignación & 6 \\
+            \hline
+            Test = 0 & 7 \\
+            \hline
+            Test $\neq$ 0 & 8 \\
+            \hline
+            If Then & 9 \\
+            \hline
+        \end{tabular}
+    \end{table}
+    \begin{itemize}
+        \item[2.] $V_2 \coloneqq S(V_1) \Rightarrow c_2 = 2^4 3^6 5^2 7^3 = 100,018,800$
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 8}
+    \textbf{Solución}\\
+    \begin{table}[h]
+        \centering
+        \renewcommand{\arraystretch}{1.2}
+        \begin{tabular}{|c|c|}
+            \hline
+            \textbf{Elemento} & \textbf{Código} \\
+            \hline
+            0 & 1 \\
+            \hline
+            \textit{S} & 2 \\
+            \hline
+            $V_1, V_2, V_3$ & 3,4,5 \\
+            \hline
+            Asignación & 6 \\
+            \hline
+            Test = 0 & 7 \\
+            \hline
+            Test $\neq$ 0 & 8 \\
+            \hline
+            If Then & 9 \\
+            \hline
+        \end{tabular}
+    \end{table}
+    \begin{itemize}
+        \item[3.] If $S(V_2)!=0$ Then $V_2 \coloneqq0 \Rightarrow c_3 = 2^9 3^2 5^4 7^8 11^4 13^6 17^1 = $\\
+        $=19,946,035,319,147,107,410,240,000$
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 8}
+    \textbf{Solución}\\
+    \begin{table}[h]
+        \centering
+        \renewcommand{\arraystretch}{1.2}
+        \begin{tabular}{|c|c|}
+            \hline
+            \textbf{Elemento} & \textbf{Código} \\
+            \hline
+            0 & 1 \\
+            \hline
+            \textit{S} & 2 \\
+            \hline
+            $V_1, V_2, V_3$ & 3,4,5 \\
+            \hline
+            Asignación & 6 \\
+            \hline
+            Test = 0 & 7 \\
+            \hline
+            Test $\neq$ 0 & 8 \\
+            \hline
+            If Then & 9 \\
+            \hline
+        \end{tabular}
+    \end{table}
+    \begin{itemize}
+        \item[4.] If $S(V_1)=0$ Then $V_1 \coloneqq S(V_2) \Rightarrow c_4 = 2^9 3^2 5^3 7^7 11^3 13^6 17^2 19^4 = $\\
+        $=114,778,139,142,991,410,757,839,168,000$
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 8}
+    \textbf{Solución}\\
+    \begin{table}[h]
+        \centering
+        \renewcommand{\arraystretch}{1.2}
+        \begin{tabular}{|c|c|}
+            \hline
+            \textbf{Elemento} & \textbf{Código} \\
+            \hline
+            0 & 1 \\
+            \hline
+            \textit{S} & 2 \\
+            \hline
+            $V_1, V_2, V_3$ & 3,4,5 \\
+            \hline
+            Asignación & 6 \\
+            \hline
+            Test = 0 & 7 \\
+            \hline
+            Test $\neq$ 0 & 8 \\
+            \hline
+            If Then & 9 \\
+            \hline
+        \end{tabular}
+    \end{table}
+    \begin{itemize}
+        \item[5.] $V_1 \coloneqq S(S(V_2)) \Rightarrow c_5 = 2^3 3^6 5^2 7^2 11^4 = 104,958,232,200$
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 8}
+    \textbf{Solución}\\
+    \begin{itemize}
+        \item[] $V_1 \coloneqq S(0)$
+        \item[] $V_2 \coloneqq S(V_1)$
+        \item[] If $S(V_2)!=0$ Then $V_2 \coloneqq0$
+        \item[] If $S(V_1)=0$ Then $V_1 \coloneqq S(V_2)$
+        \item[] $V_1 \coloneqq S(S(V_2))$
+    \end{itemize}
+    $C = 2^{c_1} 3^{c_2} 5^{c_3} 7^{c_4} 11^{c_5} = ...$
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 8}
+    \textbf{Solución}\\
+    ¿Es posible que dos fragmentos distintos tengan el mismo número?
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 8}
+    \textbf{Solución}\\
+    ¿Es posible que dos fragmentos distintos tengan el mismo número?\\~\\
+    Teorema fundamental de la aritmética: el anillo de los números enteros $\mathbb{Z}$ es un dominio de factorización única (DFU).
+    Es decir, todo número entero se descompone de forma única como producto de potencias de primos y una unidad. 
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 8}
+    \textbf{Solución}\\
+    \begin{itemize}
+        \item[] $V_1 \coloneqq S(0)$
+        \item[] $V_2 \coloneqq S(V_1)$
+        \item[] If $S(V_2)!=0$ Then $V_2 \coloneqq0$
+        \item[] If $S(V_1)=0$ Then $V_1 \coloneqq S(V_2)$
+        \item[] $V_1 \coloneqq S(S(V_2))$
+    \end{itemize}
+    $C = 2^{c_1} 3^{c_2} 5^{c_3} 7^{c_4} 11^{c_5} = ...$\\
+    El número de $C$ es incomputable. Podemos acotar inferiormente su número de cifras en decimal por $9.7 \times 10^{28}$.
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -631,8 +861,8 @@
     \begin{itemize}
         \item ¿Son decidibles los siguientes lenguajes? ¿Y Turing-reconocibles? Justifica tus respuestas:
         \begin{enumerate}[a)]
-            \item  $\{\langle M \rangle \mbox{| M es MT y  M es la única MT que acepta } L(M)\}$ 
-            \item $\{\langle M \rangle \mbox{| M es MT  y  se puede diseñar un programa en Java para reconocer } L(M)\}$
+            \item  $\{\langle M \rangle \mid \mbox{M es MT y  M es la única MT que acepta } L(M)\}$ 
+            \item $\{\langle M \rangle \mid \mbox{M es MT  y  se puede diseñar un programa en Java para reconocer } L(M)\}$
         \end{enumerate}
     \end{itemize}
 \end{frame}
@@ -641,7 +871,41 @@
 
 \begin{frame}{Sección Cuarto de Punto}{Ejercicio 10}
     \textbf{Solución}\\
-    La solución es...
+    \begin{itemize}
+        \item[a)] $\mathcal{A} = \{\langle M \rangle \mid \mbox{M es MT y  M es la única MT que acepta } L(M)\}$\\~\\
+    \end{itemize}
+
+    Proposición: $\mathcal{A} = \emptyset$\\~\\
+
+    Demostración: supongamos por reducción al absurdo que $\mathcal{A} \neq \emptyset$ y sea $\langle M \rangle \in \mathcal{A}.$
+    La máquina de Turing $M$ será de la forma $M=(Q,\Sigma,\Gamma,\delta,q_0,q_f)$. Sea $q' \notin Q$ y sea $M'$ la máquina de Turing $M'=(Q \cup \{q'\},\Sigma,\Gamma,\delta,q_0,q_f)$
+    Podemos ver el estado $q'$ como un estado desconectado de los demás. Entonces $L(M) = L(M') \Rightarrow \langle M \rangle \notin \mathcal{A}$.
+    Esto es una contradicción pues partíamos de $\langle M \rangle \in \mathcal{A}$   
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 10}
+    \textbf{Solución}\\
+    \begin{itemize}
+        \item[a)] $\mathcal{A} = \{\langle M \rangle \mid \mbox{M es MT y  M es la única MT que acepta } L(M)\}$\\~\\
+    \end{itemize}
+
+    Conclusión: el lenguaje es el lenguaje vacío, que es regular y, por tanto, decidible y Turing-reconocible.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 10}
+    \textbf{Solución}\\
+    \begin{itemize}
+        \item[b)] $\mathcal{B} = \{\langle M \rangle \mid \mbox{M es MT  y  se puede diseñar un programa en Java para reconocer } L(M)\}$\\~\\
+    \end{itemize}
+
+    El lenguaje de programación Java puede emular el comportamiento de cualquier máquina de Turing (suponiendo una memoria y un tiempo de cómputo ilimitados).
+    Por ello, se dice que el lenguaje Java es Turing completo.
+    De hecho, basta programar crear un programa en Java que implemente la Máquina de Turing Universal (por ejemplo, la que decodifica el número de Gödel) para que dada una entrada $\langle M \rangle$ emule el comportamiento de $M$. \\
+    Así pues, $\mathcal{B}$ es el conjunto de máquinas de Turing y, por tanto, regular.  
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -658,7 +922,41 @@
 
 \begin{frame}{Sección Medio Punto}{Ejercicio 11}
     \textbf{Solución}\\
-    La solución es...
+    \begin{itemize}
+        \item[--] $\$\$$
+        \item[--] $0^n \$ 0^n \$ 0^n \text{ donde } n \geq 0$
+        \item[--] $ \omega \$ \omega \$ \omega \text{ donde } \omega$ es un palíndromo 
+        \item[--] $10\$ \$ \$01 \$ 10\$$  
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Medio Punto}{Ejercicio 11}
+    \textbf{Solución}\\
+    Lema del bombeo para lenguajes regulares: si $L \in \mathcal{REG} \text{ entonces } \exists p \in \mathbb{N} \text{ tal que } \forall \omega \in L \text{ con}$
+    $|\omega| \geq p$ existe una división $\omega = xyz$ que cumple:
+    \begin{itemize}
+        \item[a)] $\forall i \geq 0, xy^iz \in L$
+        \item[b)] $|y| > 0$
+        \item[c)] $|xy| \leq p$  
+    \end{itemize}
+    El número $p$ se le conoce como longitud de bombeo (pumping length).
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Medio Punto}{Ejercicio 11}
+    \textbf{Solución}\\
+    Proposición: el lenguaje $L=\{x\$x^R\$x \mid x \in \Sigma^*\}$ no es regular.\\~\\
+
+    Demostración: supongamos por reducción al absurdo que $L$ es regular y que $p$ es una longitud de bombeo para $L$. 
+    Consideremos la palabra $\omega = 0^p\$0^p\$0^p \in L$.\\
+    Según el Lema de Bombeo debería existir una división $xyz=\omega$
+    que cumpla las tres condiciones. De la segunda ($|y|>0$) tercera ($|xy| \leq p$) condición se tiene necesariamente $y=0^k, k \in \{1..p\}$ y que $y$ está contenida en la primera ristra de ceros.
+    Al bombear $y$ cero veces se obtiene la palabra $xz = 0^{p-k}\$0^p\$0^p \notin L$.\\~\\
+    Esto contradice el Lema del Bombeo, por lo que la premisa de suponer que $L$ es regular es incorrecta. 
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
