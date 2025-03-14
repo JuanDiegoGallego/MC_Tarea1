@@ -1091,7 +1091,46 @@
 
 \begin{frame}{Sección Tres Cuartos de Punto}{Ejercicio 16}
     \textbf{Solución}\\
-    La solución es...
+    Observación 1: sea $L$ un lenguaje Turing-reconocible no vacío. 
+    Entonces $\omega \in L^*$ si y solo si existe un número natural $k \in \mathbb{N}$ y una subdivisión $\omega = \omega_1...\omega_k$ donde $\omega_i \in L \text{ } \forall i = 1..k$\\~\\
+
+    Observación 2: sea $\omega$ una palabra de longitud $|\omega|=n$ y sea $1 \leq k \leq n$.
+    Entonces existen ${n-1}\choose{k-1}$ subdivisiones de $\omega$ de longitud $k$.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Tres Cuartos de Punto}{Ejercicio 16}
+    \textbf{Solución}\\
+    Observación 1: sea $L$ un lenguaje Turing-reconocible no vacío. 
+    Entonces $\omega \in L^*$ si y solo si existe un número natural $k \in \mathbb{N}$ y una subdivisión $(\omega_1,...,\omega_k)$ de $\omega$ donde $\omega_i \in L \text{ } \forall i = 1..k$\\~\\
+
+    Observación 2: sea $\omega$ una palabra de longitud $|\omega|=n$ y sea $1 \leq k \leq n$.
+    Entonces existen ${n-1}\choose{k-1}$ subdivisiones de $\omega$ de longitud $k$.\\~\\
+
+    Esto se debe a que para subdividir $\omega$ en $k$ trozos hay que elegir $(k-1)$ de los $(n-1)$ "cortes" posibles.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Tres Cuartos de Punto}{Ejercicio 16}
+    \textbf{Solución}\\
+    Teorema: $\mathcal{RE}$ es cerrado por clausuras.\\~\\
+
+    Demostración: sea $L$ un lenguaje Turing-reconocible reconocido por la máquina $M$. Si $L$ es vacío, $M$ reconoce $L^*=L=\emptyset$. Si no, partir de $M$ construimos la máquina $M^*$ que ante una entrada $\omega$:
+    \begin{enumerate}
+        \item Si $\omega = \epsilon$ Entonces ACCEPT 
+        \item Recorre $\omega$ para contar el número de letras que la forman y almacenar el resultado en N
+        \item $\forall i \in \mathbb{N}$
+        \begin{enumerate}
+            \item $\forall k \in {1,...,N}$
+            \begin{enumerate}
+                \item Generar una todas las subdivisiones $S_k = \{\omega_1...\omega_k\}$ de $\omega$ en $k$ 
+                \item $\forall (\omega_1,...,\omega_k) \in S_k$ simular hasta $i$ pasos de $M(\omega_j)$ $\forall j=1..k$
+                \item Si $M(\omega_j)$ acepta $\forall j=1..k$ Entonces ACCEPT
+            \end{enumerate}
+        \end{enumerate}
+    \end{enumerate}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
