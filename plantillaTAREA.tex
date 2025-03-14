@@ -1152,29 +1152,40 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Sección Tres Cuartos de Punto}{Ejercicio 17}
-    \textbf{a) Sea $L_2 \in \lr$ y sea $L_1$ tal que $L_1 \subseteq L_2$. Entonces, si $\exists$ un autómata con pila $A$ tal que $L(A)=L_2$ entonces $L_1$ cumple el Lema de Bombeo para los Lenguajes Libres de Contexto.}\\
-    La solución es...
+    \textbf{a) Sea $L_2 \in \lr$ y sea $L_1$ tal que $L_1 \subseteq L_2$. Entonces, si $\exists$ un autómata con pila $A$ tal que $L(A)=L_2$ entonces $L_1$ cumple el Lema de Bombeo para los Lenguajes Libres de Contexto.}\\~\\
+    Sea $L_2$ el lenguaje universal para el alfabeto $\{a,b,c\}$ y sea $L_1=\{a^n b^n c^n \mid n \geq 1\}$.
+    Entonces $L_2 \in \mathcal{RE}, L_1 \subseteq L_2$ y existe un autómata con pila que decide $L_2$ pues el lenguaje universal es regular (en particular $L_2 \in \mathcal{CF}$).
+    No obstante, $L_1$ no cumple el Lema de Bombeo para los Lenguajes Libres de Contexto.\\~\\
+    \textbf{La afirmación es falsa.}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Sección Tres Cuartos de Punto}{Ejercicio 17}
-    \textbf{b) Sea $L_2 \in \lr$ y sea $L_1$ tal que $L_1 \subseteq L_2$. Entonces, si no  existe una máquina de Turing con  STAY para decidir $L_1$ entonces no existe una máquina de Turing determinista de 2 cintas para decidir $L_2$.}\\
-    La solución es...
+    \textbf{b) Sea $L_2 \in \lr$ y sea $L_1$ tal que $L_1 \subseteq L_2$. Entonces, si no  existe una máquina de Turing con  STAY para decidir $L_1$ entonces no existe una máquina de Turing determinista de 2 cintas para decidir $L_2$.}\\~\\
+
+    Sea $L_2$ e lenguaje universal del alfabeto binario y sea $L_1=\{ \langle M \rangle \mid \langle M \rangle$ es el código de Gödel de una máquina de Turing que acepta el lenguaje vacío$\}$.
+    Entonces $L_2 \in \mathcal{RE}, L_1 \subset L_2$ y no existe una máquina de Turing con STAY para decidir $L_1$ ya que $L_1$ es indecidible pero si existe una máquina de Turing determinista de 2 cintas para decidir $L_2$ ya que $L_2$ es regular.\\~\\
+
+    \textbf{La afirmación es falsa.}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Sección Tres Cuartos de Punto}{Ejercicio 17}
-    \textbf{c) Sea $L_2 \in \lr$ y sea $L_1$ tal que $L_1 \subseteq L_2$. Entonces, si $L_2 \setminus L_1=\{\lambda\}$ se cumple que si $L_1 \in \ld$ entonces $L_2 \in \ld$.}\\
-    La solución es...
+    \textbf{c) Sea $L_2 \in \lr$ y sea $L_1$ tal que $L_1 \subseteq L_2$. Entonces, si $L_2 \setminus L_1=\{\lambda\}$ se cumple que si $L_1 \in \ld$ entonces $L_2 \in \ld$.}\\~\\
+
+    De $L_1 \subseteq L_2$ y $L_2 \setminus L_1 = \{\lambda\}$ tenemos necesariamente $L_2 = L_1 \dot{\cup} \{\lambda\}$.
+    De la propiedad de cierre de los lenguajes decidibles bajo la unión $L_1 \in \mathcal{DEC}$ y $\{\lambda\} \in \mathcal{DEC}$ $\Rightarrow L_2 = L_1 \cup \{\lambda\} \in \mathcal{DEC}.$\\~\\
+
+    \textbf{La afirmación es cierta.}
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Sección Tres Cuartos de Punto}{Ejercicio 17}
-    \textbf{d) Si $HALT^{MT} \le_m L$ entonces existe una MT  que acepte las cadenas de $L$ y rechace las cadenas que no son de $L$.}\\
-    La solución es...
+    \textbf{d) Si $HALT^{MT} \le_m L$ entonces existe una MT  que acepte las cadenas de $L$ y rechace las cadenas que no son de $L$.}\\~\\    
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
