@@ -1023,14 +1023,12 @@
         $\overline{L_1 \setminus L_2} = \overline{L_1 \cap L_2}= \overline{L_1}\cup L_2 $
     \end{center}
 
-    \\
     Esta igualdad se utilizará las siguientes justificaciones:
     
     \begin{enumerate}[(1)]
-        \item Como $L_1 \in \lreg$, sabemos que $\overline{L_1} \in \lreg$. Al tomar la unión con un lenguaje $\lcf$, solo podemos asegurar que sea \lcf, pues $\lreg \in \lcf$ y la unión de lenguajes \lcf \space es \lcf.
+        \item Como $L_1 \in$ \lreg, sabemos que $\overline{L_1} \in$ \lreg. Al tomar la unión con un lenguaje \lcf, solo podemos asegurar que sea \lcf, pues \lreg $\in$ \lcf y la unión de lenguajes \lcf \space es \lcf.
         \item Análogo al anterior, aplicado a lenguajes \ld, ya que también cumplen que son cerrados para la unión.
         \item Ídem, los lenguajes \lr \space son también cerrados para la unión.
-        
     \end{enumerate}
 \end{frame}
 
@@ -1047,11 +1045,10 @@
     \textbf{Solución}\\
     .
     \begin{enumerate}[label=(\arabic*)]
-        \item[(10, 11)] Como $L_1 \in \lr \cap CO-\lr \Rightarrow L_1 \in \ld$, que es cerrado para la unión $\Rightarrow$ Ambos son $\ld$
-        \item[(12)] $L_1\in\ld \subset \lr$ y  \lr \space cerrado para la unión $\Rightarrow$ El lenguaje es $\lr$
-        \item[(13, 14)] $L_1 \in \lr \Rightarrow \overline{L_1} \in CO-\lr$. Como $\lcf \in \ld \subset CO-\lr$ y ser $CO-\lr$ se conserva mediante la unión (Si $L_1$ y $L_2$ son $CO-\lr$, sus complementarios son $\lr$. Entonces $\overline{L_1} \cap \overline{L_2} = \overline{L_1 \cup L_2} \in \lr$ por ser $\lr$ cerrado para la intersección. Pero entonces $L_1 \cup \L2 \in CO-\lr$, como queríamos ver), entonces ambos lenguajes son $CO-\lr$
-        \item[(15)] Este lenguaje es la unión de un lenguaje $\CO-\lr$ y otro $\lr$, por lo que no sabemos nada.
-        
+        \item[(10, 11)] Como $L_1 \in$ \lr $\cap CO-$ \lr $\Rightarrow L_1 \in$ \ld, que es cerrado para la unión $\Rightarrow$ Ambos son \ld
+        \item[(12)] $L_1\in$ \ld $\subset$ \lr y  \lr \space cerrado para la unión $\Rightarrow$ El lenguaje es \lr
+        \item[(13, 14)] $L_1 \in$ \lr $\Rightarrow \overline{L_1} \in CO-$ \lr. Como \lcf $\in$ \ld $\subset CO-$ \lr y ser $CO-$ \lr se conserva mediante la unión (Si $L_1$ y $L_2$ son $CO-$ \lr, sus complementarios son \lr. Entonces $\overline{L_1} \cap \overline{L_2} = \overline{L_1 \cup L_2} \in$ \lr por ser \lr cerrado para la intersección. Pero entonces $L_1 \cup L_2 \in CO-$ \lr, como queríamos ver), entonces ambos lenguajes son $CO-$ \lr
+        \item[(15)] Este lenguaje es la unión de un lenguaje $CO-$ \lr y otro \lr, por lo que no sabemos nada.
     \end{enumerate}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1099,15 +1096,14 @@
 \begin{frame}{Sección Medio Punto}{Ejercicio 14}
     \textbf{Solución}\\
      \begin{center}
-        A. $\overline{L} \in CO-\lr$, $X$ es \lr-completo y $X \le_m  L$
+        A. $\overline{L} \in CO-$ \lr, $X$ es \lr-completo y $X \le_m  L$
     \end{center}
-    Como $\overline{L} \in CO-\lr \Rightarrow L\in\lr$ \\ 
+    Como $\overline{L} \in CO-$ \lr $\Rightarrow L\in$ \lr \\ 
     Por ser X \lr-completo y $X \leq_m L$, sabemos que L es \lr-completo. Por tanto:\\
     \begin{center}
         $A. \Rightarrow V.$
     \end{center}
-    \\No se puede deducir ninguna otra de las conclusiones a partir de A.
-    
+    No se puede deducir ninguna otra de las conclusiones a partir de A.
 \end{frame}
 
 \begin{frame}{Sección Medio Punto}{Ejercicio 14}
@@ -1115,14 +1111,14 @@
      \begin{center}
         B. El cardinal de $L$ es un número natural
     \end{center}
-    De la afirmación B deducimos que $L \in \lreg$. Por tanto, podemos deducir:
+    De la afirmación B deducimos que $L \in$ \lreg. Por tanto, podemos deducir:
     \begin{enumerate}[I.]
-        \item L es dedicible: $\lreg \subset \ld \Rightarrow L \in \ld$
-        \item $\lreg \subset \lcf \Rightarrow L \in \lcd \Rightarrow$ Cumple el Lema de Bombeo para los Lenguajes libres de contexto.
+        \item L es dedicible: \lreg $\subset$ \ld $\Rightarrow L \in$ \ld
+        \item \lreg $\subset$ \lcf $\Rightarrow L \in$ \lcf $\Rightarrow$ Cumple el Lema de Bombeo para los Lenguajes libres de contexto.
         \item Por ser L decidible, podemos construir una máquina de Turing que rechace las cadenas que son de L y que acepte las que no son de L.
     \end{enumerate}
-    \vspace{3}
-    \\No se puede deducir ninguna otra de las conclusiones a partir de B.
+    %\vspace{3}
+    %No se puede deducir ninguna otra de las conclusiones a partir de B.
 \end{frame}
 
 \begin{frame}{Sección Medio Punto}{Ejercicio 14}
@@ -1131,8 +1127,8 @@
         C. $L \le_m  EQ^{DFA}$  
     \end{center}
     $EQ^{DFA} = \{\langle A_1, A_2\rangle \space | \space A_1 \text{ y } A_2 \text{ son DFA tal que } L(A_1) = L(A_2)\}$  que hemos visto en clase que es decidible.
-    \vspace{3}
-    Aplicando el 1er Teorema de Reducibilidad, sabemos que $L\in \ld$, es decir: 
+    \vspace{3mm}
+    Aplicando el 1er Teorema de Reducibilidad, sabemos que $L\in$ \ld, es decir: 
     \begin{center}
         $C. \Rightarrow I.$
     \end{center}
@@ -1140,8 +1136,8 @@
     \begin{center}
         $C. \Rightarrow III.$
     \end{center}
-    \\No se puede deducir ninguna otra de las conclusiones a partir de C.
-    
+    No se puede deducir ninguna otra de las conclusiones a partir de C.
+     
 \end{frame}
 
 \begin{frame}{Sección Medio Punto}{Ejercicio 14}
@@ -1159,18 +1155,18 @@
 \begin{frame}{Sección Medio Punto}{Ejercicio 14}
     \textbf{Solución}\\
      \begin{center}
-        \textbf{Proposición.} $EQ^{MT} \notin \lr$
+        \textbf{Proposición.} $EQ^{MT} \notin$ \lr
     \end{center}
-    Supongamos que $EQ^{MT}\in \lr$. Entonces se puede construir la siguiente mapping-reducción desde $EMPTY^{MT}$:
+    Supongamos que $EQ^{MT}\in$ \lr. Entonces se puede construir la siguiente mapping-reducción desde $EMPTY^{MT}$:
     
     \vspace{3mm}
-    Sea $M_{\emptyset}$ la máquina de Turing que acepta el lenguaje vacío. Dada una MT $M \in EMPTY^{MT}$, tenemos que $\langle M, M_{\emptyset}\rangle \in EQ^{MT}$. Por tanto, $EMPTY^{MT} \leq_{m} EQ^{MT}$. Pero esto implicaría que $EMPTY^{MT}$ es $\lr$ por el 2ndo Teorema de Reducibilidad. CONTRADICCIÓN.
+    Sea $M_{\emptyset}$ la máquina de Turing que acepta el lenguaje vacío. Dada una MT $M \in EMPTY^{MT}$, tenemos que $\langle M, M_{\emptyset}\rangle \in EQ^{MT}$. Por tanto, $EMPTY^{MT} \leq_{m} EQ^{MT}$. Pero esto implicaría que $EMPTY^{MT}$ es $\mathcal{RE} \space$ por el 2ndo Teorema de Reducibilidad. CONTRADICCIÓN.
     
-    \vspace{3}
-    Queda demostrado por reducción al absurdo que $EQ^{MT} \notin \lr$
+    \vspace{3mm}
+    Queda demostrado por reducción al absurdo que $EQ^{MT} \notin$ \lr\\
     
-     \vspace{3}
-    \\No se puede deducir ninguna otra de las conclusiones a partir de D.
+    \vspace{3mm}
+    No se puede deducir ninguna otra de las conclusiones a partir de D.
     
 \end{frame}
 
@@ -1180,15 +1176,15 @@
         E. Existe una MT que acepta las cadenas que son de $L$ y una MT que acepta las cadenas que no son de $L$.   
     \end{center}
     Utilizando estas dos MTs ($M_1$ y $M_2$) se puede construir una MT M' que decide L:
-    Ante una entrada w, M' actúa así:
+    Ante una entrada $\omega$, M' actúa así:
     \begin{enumerate}[1.] 
-        \item Ejecuta paralelamente $M_1$ y $M_2$ con w. 
+        \item Ejecuta paralelamente $M_1$ y $M_2$ con $\omega$ (ejecutar pasos alternadamente). 
         \item   Si $M_1$ ACEPTA, M' ACEPTA.\\
                 Si $M_2$ ACEPTA, M' RECHAZA.
     \end{enumerate}
         
     \vspace{3mm}
-    Sabemos que es proceso terminará en tiempo finito, pues o bien $w \in L$ o $w \notin L$.
+    Sabemos que es proceso terminará en tiempo finito, pues o bien $\omega \in L$ o $w \notin L$.
     Por tanto sabemos que L es decidible, es decir:
     \begin{center}
         $E. \Rightarrow I.$
@@ -1205,9 +1201,9 @@
         $E. \Rightarrow III.$
     \end{center}
     Construimos la máquina M' que nos piden en III:\\
-    Ante una entrada w, M' actúa así:
+    Ante una entrada $\omega$, M' actúa así:
     \begin{enumerate}[1.] 
-        \item Ejecuta paralelamente $M_1$ y $M_2$ con w. 
+        \item Ejecuta paralelamente $M_1$ y $M_2$ con $\omega$. 
         \item   Si $M_1$ ACEPTA, M' RECHAZA.\\
                 Si $M_2$ ACEPTA, M' ACEPTA.
     \end{enumerate}
@@ -1346,34 +1342,70 @@
 
 \begin{frame}{Sección Tres Cuartos de Punto}{Ejercicio 17}
     \textbf{d) Si $HALT^{MT} \le_m L$ entonces existe una MT  que acepte las cadenas de $L$ y rechace las cadenas que no son de $L$.}\\~\\    
+
+    Supongamos por reducción al absurdo que existe un decisor $D_L$ para $L$ y que $HALT^{MT}$ se mapping-reduce a $L$ con la función $f$.
+    Sea $D_H$ la máquina de Turing que ante una entrada $\langle M,\omega \rangle$:
+    \begin{enumerate}[1.]
+        \item Aplica $f$ a la entrada $\langle M,\omega \rangle$
+        \item Ejecuta $D_L(f(\langle M,\omega \rangle))$
+        \item Si $D_L$ acepta Entonces ACCEPTA
+        \item Sino RECHAZA
+    \end{enumerate}
+
+    Como $f$ es una mapping-reducción y $D_L$ es un decisor, $D_H$ es un decisor para $HALT^{MT}$, lo que es absurdo ya que sabemos que $HALT^{MT}$ no es decidible.
+    Por tanto, $D_L$ no puede existir.\\~\\
+
+    \textbf{La afirmación es falsa.}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Sección Tres Cuartos de Punto}{Ejercicio 17}
     \textbf{e) El lenguaje $L_{exquisito}$, formado por aquellas MTs que aceptan menos cadenas de las que no aceptan, es indecidible. (además, descríbelo como los lenguajes de clase).}\\
-    La solución es...
+    El cardinal de un lenguaje para un alfabeto finito está acotado por $\mathcal{N}_0$. Como consecuencia, si $\langle M \rangle \in L_{exquisito} \Leftrightarrow |L(M)|<\mathcal{N}_0$.
+    Así pues, podemos describir el lenguaje como: 
+    \begin{center}
+        $L_{exquisito}=\{\langle M \rangle \mid |L(M)|< \mathcal{N}_0\}$
+    \end{center}
+    Aplicando el Teorema de Rice, $L_{exquisito}$ no es decidible, pues tener un cardinal finito no es una propiedad trivial de los lenguajes.\\~\\
+
+    \textbf{La afirmación es verdadera.}
+    
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Sección Tres Cuartos de Punto}{Ejercicio 17}
-    \textbf{f) El lenguaje $$L_{not_{murciano}}=\{\langle M \rangle \mid \mbox{M es MT  tal que } |w|\neq |pijo|,  \forall w \in L(M) \}$$  no es decidible según el Teorema de Rice}\\
-    La solución es...
+    \textbf{f) El lenguaje $$L_{not_{murciano}}=\{\langle M \rangle \mid \mbox{M es MT  tal que } |w|\neq |pijo|,  \forall w \in L(M) \}$$  no es decidible según el Teorema de Rice}\\~\\
+    
+    Podemos reescribir la definición del lenguaje de forma que quede más clara la aplicación del Teorema de Rice:
+    \begin{center}
+        $L_{not_{murciano}}=\{\langle M \rangle \mid M \text{es MT tal que } L(M) \text{ no contiene ninguna palabra de longitud 4}\}$
+    \end{center}
+    Como contener o no contener palabras de cierta longitud no es una propiedad trivial de los lenguajes, el lenguaje no es decidible.\\~\\
+
+    \textbf{La afirmación es verdadera.}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Sección Tres Cuartos de Punto}{Ejercicio 17}
-    \textbf{g) Si $L\le_m  Acc^{PDA}$ entonces existe una MT de 2 cintas que decide $L$. }\\
-    La solución es...
+    \textbf{g) Si $L\le_m  Acc^{PDA}$ entonces existe una MT de 2 cintas que decide $L$. }\\~\\
+    Es una aplicación directa del \textbf{Primer Teorema de Reducibilidad}. Sabemos que $Acc^{PDA}$ es un lenguaje decidible.
+    Como $L$ se mapping-reduce en $Acc^{PDA}$, $L$ también es decidible y existe una MT de 2 cintas que lo decide.\\~\\
+
+    \textbf{La afirmación es verdadera}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Sección Tres Cuartos de Punto}{Ejercicio 17}
-    \textbf{h) Dada  una propiedad trivial $PT$ de los lenguajes \lr y $L_{PT}=\{\langle M \rangle \mid \hbox{ M es una MT cuyo lenguaje no cumple } PT\}$, $L_{PT}$ es decidible y la MT que lo decide es una que siempre rechaza su entrada.}\\
-    La solución es...
+    \textbf{h) Dada  una propiedad trivial $PT$ de los lenguajes \lr \space y $L_{PT}=\{\langle M \rangle \mid \hbox{ M es una MT cuyo lenguaje no cumple } PT\}$, $L_{PT}$ es decidible y la MT que lo decide es una que siempre rechaza su entrada.}\\~\\
+   
+    Sea $PT$ la propiedad $ \notin \mathcal{RE}$ entonces $L_{PT} = \{\langle M \rangle \mid M \text{ es una MT cuyo lenguaje no cumple } L(M) \notin \mathcal{RE}\}$, es decir, $L_{PT} = \{\langle M \rangle \mid M \text{ es una MT cuyo lenguaje cumple } L(M) \in \mathcal{RE}\} = {\langle M \rangle \mid M es una MT}$
+    Así pues, $L_{PT}$ es decidible, pero la MT que lo decide siempre acepta su entrada.\\~\\
+
+    \textbf{La afirmación es falsa.}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
