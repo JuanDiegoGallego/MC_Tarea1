@@ -1426,7 +1426,34 @@
 
 \begin{frame}{Sección Tres Cuartos de Punto}{Ejercicio 18}
     \textbf{Solución}\\
-    La solución es...
+    \begin{itemize}
+        \item[a)] $L_1 = \{\langle M \rangle \hbox{| M es una MT con } |L(M)| \geq 100\}$ (por mapping-reducción desde $HALT^{MT}$)\\~\\
+    \end{itemize}
+    Sea $f: HALT^{MT} \rightarrow L_1$ definida por $f(\langle M, \omega \rangle) = M_{\omega}$ donde $M_{\omega}$ es una MT que acepta 99 palabras distintas a $\omega$ y que con $\omega$ se comporta igual que $M$ pero aceptando en caso de que $M$ rechaze.
+    Esta función es claramente computable ya que para hacer dicha construcción se pueden seguir los pasos:
+    \begin{enumerate}
+        \item Decodificar la entrada $\langle M, \omega \rangle$
+        \item Construir el AFD que acepta las primeras 99 palabras en orden alfabético distintas a $\omega$
+        \item Construir la máquina de Turing $M_{\omega}$ que ante una entrada $\pi$ ejecuta:
+        \begin{enumerate}[a)]
+            \item Simula el AFD con la entrada $\pi$. Si acepta Entonces ACEPTA
+            \item Si $\pi \neq \omega$ RECHAZA
+            \item Simula $M(\omega)$. Si acepta o rechaza Entonces ACEPTA.
+        \end{enumerate}
+    \end{enumerate}  
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Tres Cuartos de Punto}{Ejercicio 18}
+    \textbf{Solución}\\
+    \begin{itemize}
+        \item[a)] $L_1 = \{\langle M \rangle \hbox{| M es una MT con } |L(M)| \geq 100\}$ (por mapping-reducción desde $HALT^{MT}$) \\~\\
+    \end{itemize}
+    Con esta construcción se cumple $\langle M, \omega \rangle \in HALT^{MT} \Leftrightarrow M_{\omega} \in L_1$, es decir, $f$ es una mapping-reducción de $HALT^{MT}$ en $L_1$. Resulta sencillo comprobar que $L_1$ es Turing-reconocible.
+    Se puede usar una máquina parecida a la del ejercicio 6, saltando el paso del conteo de estados e inicializando CONTADOR a 100.\\~\\
+    Con todo esto podemos concluir que $L_1$ es $\mathcal{RE}$-completo pues es $\mathcal{RE}$ y existe una mapping-reducción de $HALT^{MT}$ en él, siendo $HALT^{MT} \space \mathcal{RE}-$completo.\\~\\
+    $L_1 \in \mathcal{RE} \setminus \mathcal{DEC}$ 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
