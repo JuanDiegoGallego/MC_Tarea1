@@ -1416,8 +1416,8 @@
     \begin{itemize}
         \item ¿Son decidibles los siguientes lenguajes? ¿Y Turing-reconocibles? Justifica tus respuestas:
         \begin{enumerate}[a)]
-            \item $\{\langle M \rangle \hbox{| M es una MT con } |L(M)| \geq 100\}$ (por mapping-reducción desde $HALT^{MT}$)
-            \item $\{\langle M \rangle \hbox{| M es una MT con lenguaje finito}  \}$ (por mapping-reducción desde $\overline{HALT^{MT}}$)
+            \item $\{\langle M \rangle \mid \hbox{ M es una MT con } |L(M)| \geq 100\}$ (por mapping-reducción desde $HALT^{MT}$)
+            \item $\{\langle M \rangle \mid \hbox{ M es una MT con lenguaje finito}  \}$ (por mapping-reducción desde $\overline{HALT^{MT}}$)
         \end{enumerate}
     \end{itemize}
 \end{frame}
@@ -1427,7 +1427,7 @@
 \begin{frame}{Sección Tres Cuartos de Punto}{Ejercicio 18}
     \textbf{Solución}\\
     \begin{itemize}
-        \item[a)] $L_1 = \{\langle M \rangle \hbox{| M es una MT con } |L(M)| \geq 100\}$ (por mapping-reducción desde $HALT^{MT}$)\\~\\
+        \item[a)] $L_1 = \{\langle M \rangle \mid \hbox{ M es una MT con } |L(M)| \geq 100\}$ (por mapping-reducción desde $HALT^{MT}$)\\~\\
     \end{itemize}
     Sea $f: HALT^{MT} \rightarrow L_1$ definida por $f(\langle M, \omega \rangle) = M_{\omega}$ donde $M_{\omega}$ es una MT que acepta 99 palabras distintas a $\omega$ y que con $\omega$ se comporta igual que $M$ pero aceptando en caso de que $M$ rechaze.
     Esta función es claramente computable ya que para hacer dicha construcción se pueden seguir los pasos:
@@ -1448,7 +1448,7 @@
 \begin{frame}{Sección Tres Cuartos de Punto}{Ejercicio 18}
     \textbf{Solución}\\
     \begin{itemize}
-        \item[a)] $L_1 = \{\langle M \rangle \hbox{| M es una MT con } |L(M)| \geq 100\}$ (por mapping-reducción desde $HALT^{MT}$) \\~\\
+        \item[a)] $L_1 = \{\langle M \rangle \mid \hbox{ M es una MT con } |L(M)| \geq 100\}$ (por mapping-reducción desde $HALT^{MT}$) \\~\\
     \end{itemize}
     Con esta construcción se cumple $\langle M, \omega \rangle \in HALT^{MT} \Leftrightarrow M_{\omega} \in L_1$, es decir, $f$ es una mapping-reducción de $HALT^{MT}$ en $L_1$. Resulta sencillo comprobar que $L_1$ es Turing-reconocible.
     Se puede usar una máquina parecida a la del ejercicio 6, saltando el paso del conteo de estados e inicializando CONTADOR a 100.\\~\\
