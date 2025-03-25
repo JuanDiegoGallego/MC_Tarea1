@@ -1547,10 +1547,23 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Sección Tres Cuartos de Punto}{Ejercicio 19}
-% \vskip -1cm % Para subir (-) o bajar el texto
-    \textbf{Enunciado}
+    % \vskip -1cm % Para subir (-) o bajar el texto
+        \textbf{Enunciado}
+        \begin{itemize}
+            \item Sin usar el Teorema de Rice, demuestra la indecibilidad del lenguaje formado por MTs cuyos lenguajes son expresables por ERs.
+        \end{itemize}
+    \end{frame}
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Tres Cuartos de Punto}{Ejercicio 19}
+    \textbf{Solución}\\
+    Vamos a probar el resultado utilizando el Primer Teorema de la Reducibilidad dando una mapping-reducción de $HALT^{MT}$ al lenguaje $L$ que se nos pide y que podemos definir como $L = \{\langle M \rangle \mid L(M) \in \mathcal{REG}\}$ dado que la clase de los lenguajes regulares es la misma que la de los expresables por expresiones regulares.\\~\\
+
+    Observaciones:
     \begin{itemize}
-        \item Sin usar el Teorema de Rice, demuestra la indecibilidad del lenguaje formado por MTs cuyos lenguajes son expresables por ERs.
+        \item Todo lenguaje finito es regular.
+        \item El lenguaje $\{a^n b^n \mid n \geq 0\}$ no es regular.
     \end{itemize}
 \end{frame}
 
@@ -1558,7 +1571,39 @@
 
 \begin{frame}{Sección Tres Cuartos de Punto}{Ejercicio 19}
     \textbf{Solución}\\
-    La solución es...
+    Sea $f: HALT^{TM} \rightarrow L$ tal que $f(\langle M, \omega \rangle) = \langle M_{\omega} \rangle$ donde $M_{\omega}$ es una MT que ante una entrada $a^k b^k$:
+    \begin{enumerate}
+    \item Recorre la entrada para calcular el número de aes.
+    \item Simula $M(\omega)$ hasta $k$ pasos.
+    \item Si $M(\omega)$ acepta o rechaza en $k$ pasos o menos Entonces RECHAZA
+    \item Sino ACEPTA
+    \end{enumerate}
+    La función f es claramente computable y:
+    \begin{itemize}
+    \item $\langle M, \omega \rangle \in HALT^{TM}$ $\Leftrightarrow$  ($\exists n_{M,\omega} > 0$ tal que $M(\omega)$ se detiene en $n$ pasos $\Leftrightarrow n \geq n_{M,\omega}$) $\Leftrightarrow \exists n_{M,\omega} > 0$ tal que $L(M_{\omega}) = \{a^n b^n \mid n < n_{M,\omega}\} \Rightarrow |L(M_{\omega})| < + \infty$ $\Rightarrow L(M_{\omega}) \in \mathcal{REG}$.
+    \item $\langle M, \omega \rangle \notin HALT^{TM}$ $\Leftrightarrow$  $\nexists n > 0$ tal que $M(\omega)$ se detiene en $n$ pasos $\Leftrightarrow L(M_{\omega}) = \{a^n b^n \mid n > 0\} \Rightarrow L(M_{\omega}) \notin \mathcal{REG}$.
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Tres Cuartos de Punto}{Ejercicio 19}
+    \textbf{Solución}\\
+    Si $\langle M, \omega \rangle \in HALT^{TM}$ las palabras aceptadas por $M_{\omega}$ son:
+    \begin{itemize}
+    \item ab
+    \item aabb
+    \item aaabbb
+    \item aaaabbbb
+    \item aaaaabbbbb
+    \end{itemize} 
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Tres Cuartos de Punto}{Ejercicio 19}
+    \textbf{Solución}\\
+    Por tanto, $HALT^{MT} \le_m L$. Como $HALT^{TM} \notin \mathcal{DEC}$, aplicando el Primer Teorema de la Reducibilidad, $L \notin \mathcal{DEC}$
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
