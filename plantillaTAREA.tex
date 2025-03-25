@@ -45,7 +45,7 @@
 	\textit{Grupo 1.Subgrupo 9}\\
 	\sc{Juan Diego Gallego Nicolás}\\ % Autor 2
 	\textit{Grupo 1.Subgrupo 9}\\ 
-	\sc{Juan Diego Gallego Nicolás}\\ % Autor 3
+	\sc{Yago Ibarrola Lapeña}\\ % Autor 3
 	\textit{Grupo 1. Subgrupo 9}\\ 
 }
 
@@ -156,7 +156,7 @@
 \begin{frame}{Sección Cuarto de Punto}{Ejercicio 1}
     \textbf{Solución}\\
     \begin{itemize}
-        \item $\mathcal{AFD}$
+        \item $\mathcal{DFA}$
     \end{itemize}
 \end{frame}
 
@@ -228,7 +228,7 @@
 \begin{frame}{Sección Cuarto de Punto}{Ejercicio 1}
     \textbf{Solución}\\
     \begin{itemize}
-        \item $\mathcal{DFA} \equiv \mathcal{NDFA} \prec \mathcal{DPDA} \prec \mathcal{PDA} \equiv \mathcal{PDA}^v \prec \mathcal{STM} \equiv k-\mathcal{TM} \equiv TCL$
+        \item $\mathcal{DFA} \equiv \mathcal{NDFA} \prec \mathcal{DPDA} \prec \mathcal{PDA} \equiv \mathcal{PDA}^v \prec \mathcal{STM} \equiv k-\mathcal{TM} \equiv \mathcal{TM}$
         \item[I)] El $\lambda-$Cálculo.
         \item[IV)] Máquina de Turing con cinta finita a la izquierda e infinita a la derecha, que sólo tiene movimiento hacia la derecha y un movimiento que retorna el cabezal de lectura/escritura a la celdilla más a la izquierda.
         \item[V)] El lenguaje de programación Python
@@ -238,6 +238,16 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 1}
+    \textbf{Solución}\\
+    \begin{itemize}
+        \item Juntando  todo lo anterior obtenemos la siguiente ordenación:\\
+        \vspace{3mm}
+        $\mathcal{DFA} \equiv X \prec \mathcal{DPDA} \equiv VI \prec \mathcal{PDA} \equiv II \equiv III \prec \mathcal{TM} \equiv I \equiv IV \equiv V \equiv VII \equiv VIII \equiv IX$
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Sección Cuarto de Punto}{Ejercicio 2}
 % \vskip -1cm % Para subir (-) o bajar el texto
 \textbf{Enunciado}
@@ -435,7 +445,7 @@
 
 \begin{frame}{Sección Cuarto de Punto}{Ejercicio 4}
     \textbf{Solución}\\
-    Entonces, sobre la quintupla $(Q',\Sigma,\Gamma,q_0,q_f)$ definimos la función $\delta':Q' \times \Gamma \rightarrow Q \times \Gamma \times \{L,R\}$ definida por:\\
+    Entonces, sobre la quintupla $(Q',\Sigma,\Gamma,q_0,q_f)$ definimos la función $\delta':Q' \times \Gamma \rightarrow Q' \times \Gamma \times \{L,R\}$ definida por:\\
     $\begin{cases}
         \delta'(q_i,x) = (q_j,y,L) & \text{si } \delta(q_i,x) = (q_j,y,L),\\
         \delta'(q_i,x) = (q_j,y,R) & \text{si } \delta(q_i,x) = (q_j,y,R),\\
@@ -495,7 +505,7 @@
 
 \begin{frame}{Sección Cuarto de Punto}{Ejercicio 5}
     \textbf{Solución}\\
-    Observación: $\langle M \rangle \in HALT_{Q-steps}^{MT}$ sii $\exists \omega \text{ con } | \omega | \leq Q+1$ con la que $M$ se detiene en Q pasos o menos.\\
+    Observación: $\langle M \rangle \in HALT_{Q-steps}^{MT}$ sii $\exists \omega \text{ con } | \omega | \leq Q$ con la que $M$ se detiene en Q pasos o menos.\\
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -504,7 +514,7 @@
     \textbf{Solución}\\
     \begin{enumerate}
         \item Decodificar la entrada $\langle M \rangle$
-        \item $\forall \omega \in \Sigma^* : |\omega| \leq Q+1$
+        \item $\forall \omega \in \Sigma^* : |\omega| \leq Q$
         \begin{enumerate}
             \item Simular hasta $Q$ pasos de $M(\omega)$
             \item Si $M(\omega)$ acepta o rechaza Entonces ACCEPT
@@ -551,7 +561,7 @@
             \item $\forall \omega \in \Sigma^* : |\omega| \leq n$
             \begin{enumerate}
                 \item Simular hasta $n$ pasos de $M(\omega)$
-                \item Si $M(\omega)$ acepta en n pasos o menos Entonces CONTADOR++
+                \item Si $M(\omega)$ acepta en n pasos o menos Entonces CONTADOR2++
             \end{enumerate}
             \item Si CONTADOR $\leq$ CONTADOR2 Entonces ACCEPT
         \end{enumerate}
@@ -579,7 +589,7 @@
 
 \begin{frame}{Sección Cuarto de Punto}{Ejercicio 7}
     \textbf{Solución}\\
-    De hecho, cualquier lenguaje infinito, independientemente del alfabeto, va a tener subconjuntos incluso altamente indecidibles. Esto se debe a que existe una cantidad numerable de lenguajes Turing-reconicibles, pero el cardinal de las partes de un lenguaje numerable es $2^{\mathcal{N}_0}.$
+    De hecho, cualquier lenguaje infinito, independientemente del alfabeto, va a tener subconjuntos incluso altamente indecidibles. Esto se debe a que existe una cantidad numerable de lenguajes Turing-reconocibles, pero el cardinal de las partes de un lenguaje numerable es $2^{\mathcal{N}_0}.$
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -588,7 +598,7 @@
 % \vskip -1cm % Para subir (-) o bajar el texto
     \textbf{Enunciado}
     \begin{itemize}
-        \item El conjunto $\mt$ de las máquinas de Turing es numerable. La numeración de Gödel es prueba de ello. A partir del lenguaje simple que se ha dado en clase, calcula el número de Gödel de cada una de las instrucciones que componen este fragmento y del fragmento en si. ¿Es posible que dos fragmentos distintos tengan el mismo número?
+        \item El conjunto $\mt$ de las máquinas de Turing es numerable. La numeración de Gödel es prueba de ello. A partir del lenguaje simple que se ha dado en clase, calcula el número de Gödel de cada una de las instrucciones que componen este fragmento y del fragmento en sí. ¿Es posible que dos fragmentos distintos tengan el mismo número?
         \begin{itemize}
             \item[] $V_1 \coloneqq S(0)$
             \item[] $V_2 \coloneqq S(V_1)$
@@ -833,7 +843,7 @@
         \item[] $V_1 \coloneqq S(S(V_2))$
     \end{itemize}
     $C = 2^{c_1} 3^{c_2} 5^{c_3} 7^{c_4} 11^{c_5} = ...$\\
-    El número de $C$ es incomputable. Podemos acotar inferiormente su número de cifras en decimal por $9.7 \times 10^{28}$.
+    El valor de $C$ es incomputable. Podemos acotar inferiormente su número de cifras en decimal por $9.7 \times 10^{28}$.
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -901,11 +911,22 @@
     \begin{itemize}
         \item[b)] $\mathcal{B} = \{\langle M \rangle \mid \mbox{M es MT  y  se puede diseñar un programa en Java para reconocer } L(M)\}$\\~\\
     \end{itemize}
+    Observación: si M es una MT, $L(M) \in \mathcal{DEC}$ y, por ser Java un lenguaje Turing completo, existe un programa en Java que reconoce $L(M)$. Por lo tanto $\mathcal{B} = \{\langle M \rangle \mid \mbox{M es MT}\}$ \\~\\
+    
+\end{frame}
 
-    El lenguaje de programación Java puede emular el comportamiento de cualquier máquina de Turing (suponiendo una memoria y un tiempo de cómputo ilimitados).
-    Por ello, se dice que el lenguaje Java es Turing completo.
-    De hecho, basta programar crear un programa en Java que implemente la Máquina de Turing Universal (por ejemplo, la que decodifica el número de Gödel) para que dada una entrada $\langle M \rangle$ emule el comportamiento de $M$. \\
-    Así pues, $\mathcal{B}$ es el conjunto de máquinas de Turing y, por tanto, regular.  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 10}
+    \textbf{Solución}\\
+    \begin{itemize}
+        \item[b)] $\mathcal{B} = \{\langle M \rangle \mid \mbox{M es MT  y  se puede diseñar un programa en Java para reconocer } L(M)\}$\\~\\
+    \end{itemize}
+    Observación: si M es una MT, $L(M) \in \mathcal{DEC}$ y, por ser Java un lenguaje Turing completo, existe un programa en Java que reconoce $L(M)$. Por lo tanto $\mathcal{B} = \{\langle M \rangle \mid \mbox{M es MT}\}$ \\~\\
+    
+
+    Conclusión:\\
+    La clase de lenguaje a la que pertenece $\mathcal{B}$ dependerá de la codificación que elijamos para representar una MT. Para codificaciones razonables, el lenguaje será decidible y Turing-reconocible. En particular, si como representación de una MT usamos su número de Gödel, tenemos que $\mathcal{B}$ incluso es regular, ya que $\mathcal{B} = \{\langle M \rangle \mid \mbox{M es MT}\} = L([0-9]^*) \in \mathcal{REG}$
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -953,7 +974,7 @@
     Demostración: supongamos por reducción al absurdo que $L$ es regular y que $p$ es una longitud de bombeo para $L$. 
     Consideremos la palabra $\omega = 0^p\$0^p\$0^p \in L$.\\
     Según el Lema de Bombeo debería existir una división $xyz=\omega$
-    que cumpla las tres condiciones. De la segunda ($|y|>0$) tercera ($|xy| \leq p$) condición se tiene necesariamente $y=0^k, k \in \{1..p\}$ y que $y$ está contenida en la primera ristra de ceros.
+    que cumpla las tres condiciones. De la segunda ($|y|>0$) y tercera ($|xy| \leq p$) condición se tiene necesariamente $y=0^k, k \in \{1..p\}$ y que $y$ está contenida en la primera ristra de ceros.
     Al bombear $y$ cero veces se obtiene la palabra $xz = 0^{p-k}\$0^p\$0^p \notin L$.\\~\\
     Esto contradice el Lema del Bombeo, por lo que la premisa de suponer que $L$ es regular es incorrecta. 
 
@@ -973,46 +994,7 @@
 
 \begin{frame}{Sección Medio Punto}{Ejercicio 12}
     \textbf{Solución}\\
-    Vamos a descomponer $L$ como la unión disjunta de otros tres lenguajes:
-    \begin{itemize}
-        \item $L_1 = \{ 1^j2^k \mid j,k \geq 0 \}$
-        \item $L_2 = \{ 01^j2^j \mid j \geq 0 \}$
-        \item $L_3 = \{ 000^i 1^j 2^k \mid i,j,k \geq0\}$
-    \end{itemize}
-    Es claro que $L = L_1 \cup L_2 \cup L_3$ y que $L_i \cap L_j = \emptyset \text{ } \forall i \neq j$ (solo estamos controlando el número de ceros).
-    
-    Supongamos por reducción al absurdo que $L \in \mathcal{REG}$. En ese caso, debido a las propiedades de cierre de los lenguajes regurales y dado que $L_1$ y $L_3$ son claramente regulares tendríamos 
-    $$L_2 = L \cap \overline{(L_1 \cup L_3)}$$
-    Esto es absurdo ya que $L_2$ es un ejemplo clásico de lenguaje no regular (no cumple el lema de bombeo).
-    Como consecuencia, $L$ no puede ser regular.
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{Sección Medio Punto}{Ejercicio 12}
-    \textbf{Solución}\\
-    Proposición: el lenguaje $L= \{ 0^i 1^j 2^k \mid i,j,k \geq0 \mbox{; si } i=1 \mbox{ entonces } j=k \} $ cumple de Bombeo para lenguajes regulares.\\~\\
-
-    Demostración: la longitud de bombeo de este lenguaje es 2 ya que si $\omega \in L$ tiene una longitud mayor o igual que $2$ podemos:
-    \begin{itemize}
-        \item Si empieza por 1 o 2, bombeamos el primer carácter: \textbf{1}11222
-        \item Si empieza por un 0 y el siguiente carácter es distinto a 0, bombeamos el 0: \textbf{0}111222
-        \item Si $\omega = 00$, bombeamos el primer 0: \textbf{0}0
-        \item Si $\omega>2$, empieza por 00 y le sigue un 1 o un 2, bombeamos 00: \textbf{00}11122
-        \item Si $\omega>2$ y empieza por 000, bombeamos el primer 0: \textbf{0}0022
-    \end{itemize}
-    La longitud de bombeo no puede ser 1, ya que falla el caso $\omega = 00112$.
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{Sección Medio Punto}{Ejercicio 12}
-    \textbf{Solución}\\
-    Proposición: el lenguaje $L_2 = \{ 01^j2^j \mid j \geq 0 \}$ no cumple el Lema de Bombeo para lenguajes regulares.\\~\\
-
-    Demostración: supongamos que $L_2$ cumple el Lema del Bombeo y sea $p>0$ su longitud de bombeo (descartamos $p=1$ trivialmente). 
-    Sea $\omega = 01^p2^p \in L_2$. Si existiera una subdivisión de $\omega = xyz$, tal que $|xy| \leq p$ o bien $y=01^k$ con $0\leq k < p$ (en cuyo caso no se podría bombear con $i \neq 1$ pues solo puede haber un cero en la palabra)
-    o bien $y=1^k$ con $0<k\leq p$ (no pudiendo bombear con $i \neq 1$ por mantener la igualdad en con el numero de doses). Se llega entonces a un absurdo y, por tanto, $L_2$ no cumple el Lema de Bombeo.
+    La solución es...
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1033,13 +1015,13 @@
              \begin{tabular}{|l|l|l|l|}
              \hline
              &&&\\
-             &$L_2 \in \lcf$ &$ L_2 \in \ld$ & $ L_2 \in \lr$\\
+             &$L_2 \in \mathcal{CF}$ &$ L_2 \in \ld$ & $ L_2 \in \lr$\\
              \hline
              &&&\\
-              $ L1 \in \lreg$&(1) \lcf &(2) \ld&(3)\lr\\
+              $ L1 \in \lreg$&(1) $\mathcal{CF}$ &(2) \ld&(3)\lr\\
               \hline
              &&&\\
-             $ L1 \subset L$, con $L \in \lcf$&(4) $U_\Sigma$&(5) $U_\Sigma$&(6) $U_\Sigma$\\
+             $ L1 \subset L$, con $L \in \mathcal{CF}$&(4) $U_\Sigma$&(5) $U_\Sigma$&(6) $U_\Sigma$\\
               \hline
              &&&\\
              $L1 \in CO-\lr $&(7) \lr&(8) \lr&(9) \lr\\
@@ -1059,13 +1041,13 @@
     Para empezar, aplicaremos las leyes de Morgan al lenguaje $\overline{L_1 \setminus L_2}$:
     
     \begin{center}
-        $\overline{L_1 \setminus L_2} = \overline{L_1 \cap L_2}= \overline{L_1}\cup L_2 $
+        $\overline{L_1 \setminus L_2} = \overline{L_1 \cap \overline{L_2}}= \overline{L_1}\cup L_2 $
     \end{center}
 
     Esta igualdad se utilizará las siguientes justificaciones:
     
     \begin{enumerate}[(1)]
-        \item Como $L_1 \in$ \lreg, sabemos que $\overline{L_1} \in$ \lreg. Al tomar la unión con un lenguaje \lcf, solo podemos asegurar que sea \lcf, pues \lreg $\in$ \lcf y la unión de lenguajes \lcf \space es \lcf.
+        \item Como $L_1 \in$ \lreg, sabemos que $\overline{L_1} \in$ \lreg. Al tomar la unión con un lenguaje $\mathcal{CF}$, solo podemos asegurar que sea $\mathcal{CF}$, pues \lreg $\in$ $\mathcal{CF}$ y la unión de lenguajes $\mathcal{CF}$ \space es $\mathcal{CF}$.
         \item Análogo al anterior, aplicado a lenguajes \ld, ya que también cumplen que son cerrados para la unión.
         \item Ídem, los lenguajes \lr \space son también cerrados para la unión.
     \end{enumerate}
@@ -1076,7 +1058,7 @@
     .
     \begin{enumerate}[label=(\arabic*)]
         \item[(4, 5, 6)] La inclusión no conserva ninguna de las propiedades. Solo podemos decir que estos lenguajes pertencen al conjunto de todos los lenguajes, es decir, $U_\Sigma$
-        \item[(7, 8, 9)] Por ser $L_1 \in CO-\lr$, sabemos que $\overline{L_1} \in \lr$, por la propia definición de lenguaje $CO-\lr$. \lr \space es cerrado para la unión, pero no podemos decir nada más acerca de la unión de un lenguaje \lr \space con uno \lcf \space o \ld. Por tanto, los tres pertenecen a \lr.
+        \item[(7, 8, 9)] Por ser $L_1 \in CO-\lr$, sabemos que $\overline{L_1} \in \lr$, por la propia definición de lenguaje $CO-\lr$. \lr \space es cerrado para la unión, pero no podemos decir nada más acerca de la unión de un lenguaje \lr \space con uno $\mathcal{CF}$ \space o \ld. Por tanto, los tres pertenecen a \lr.
     \end{enumerate}
 \end{frame}
 
@@ -1086,7 +1068,7 @@
     \begin{enumerate}[label=(\arabic*)]
         \item[(10, 11)] Como $L_1 \in$ \lr $\cap CO-$ \lr $\Rightarrow L_1 \in$ \ld, que es cerrado para la unión $\Rightarrow$ Ambos son \ld
         \item[(12)] $L_1\in$ \ld $\subset$ \lr y  \lr \space cerrado para la unión $\Rightarrow$ El lenguaje es \lr
-        \item[(13, 14)] $L_1 \in$ \lr $\Rightarrow \overline{L_1} \in CO-$ \lr. Como \lcf $\in$ \ld $\subset CO-$ \lr y ser $CO-$ \lr se conserva mediante la unión (Si $L_1$ y $L_2$ son $CO-$ \lr, sus complementarios son \lr. Entonces $\overline{L_1} \cap \overline{L_2} = \overline{L_1 \cup L_2} \in$ \lr por ser \lr cerrado para la intersección. Pero entonces $L_1 \cup L_2 \in CO-$ \lr, como queríamos ver), entonces ambos lenguajes son $CO-$ \lr
+        \item[(13, 14)] $L_1 \in$ \lr $\Rightarrow \overline{L_1} \in CO-$ \lr. Como $\mathcal{CF}$ $\in$ \ld $\subset CO-$ \lr y ser $CO-$ \lr se conserva mediante la unión (Si $L_1$ y $L_2$ son $CO-$ \lr, sus complementarios son \lr. Entonces $\overline{L_1} \cap \overline{L_2} = \overline{L_1 \cup L_2} \in$ \lr por ser \lr cerrado para la intersección. Pero entonces $L_1 \cup L_2 \in CO-$ \lr, como queríamos ver), entonces ambos lenguajes son $CO-$ \lr
         \item[(15)] Este lenguaje es la unión de un lenguaje $CO-$ \lr y otro \lr, por lo que no sabemos nada.
     \end{enumerate}
 \end{frame}
@@ -1290,7 +1272,7 @@
     Entonces $\omega \in L^*$ si y solo si existe un número natural $k \in \mathbb{N}$ y una subdivisión $\omega = \omega_1...\omega_k$ donde $\omega_i \in L \text{ } \forall i = 1..k$\\~\\
 
     Observación 2: sea $\omega$ una palabra de longitud $|\omega|=n$ y sea $1 \leq k \leq n$.
-    Entonces existen ${n-1}\choose{k-1}$ subdivisiones de $\omega$ de longitud $k$.
+    Entonces existen ${n-1}\choose{k-1}$ subdivisiones disintas de $\omega$ en $k$ subpalabras.
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1301,7 +1283,7 @@
     Entonces $\omega \in L^*$ si y solo si existe un número natural $k \in \mathbb{N}$ y una subdivisión $(\omega_1,...,\omega_k)$ de $\omega$ donde $\omega_i \in L \text{ } \forall i = 1..k$\\~\\
 
     Observación 2: sea $\omega$ una palabra de longitud $|\omega|=n$ y sea $1 \leq k \leq n$.
-    Entonces existen ${n-1}\choose{k-1}$ subdivisiones de $\omega$ de longitud $k$.\\~\\
+    Entonces existen ${n-1}\choose{k-1}$ subdivisiones disintas de $\omega$ en $k$ subpalabras.\\~\\
 
     Esto se debe a que para subdividir $\omega$ en $k$ trozos hay que elegir $(k-1)$ de los $(n-1)$ "cortes" posibles.
 \end{frame}
@@ -1311,7 +1293,7 @@
 \begin{frame}{Sección Tres Cuartos de Punto}{Ejercicio 16}
     \textbf{Solución}\\
     Teorema: $\mathcal{RE}$ es cerrado por clausuras.\\~\\
-
+    Notación: Llamaremos $S_{\omega, k}$ al conjunto de subdivisiones de $\omega$ en $k$ trozos.\\~\\ 
     Demostración: sea $L$ un lenguaje Turing-reconocible reconocido por la máquina $M$. Si $L$ es vacío, $M$ reconoce $L^*=L=\emptyset$. Si no, partir de $M$ construimos la máquina $M^*$ que ante una entrada $\omega$:
     \begin{enumerate}
         \item Si $\omega = \epsilon$ Entonces ACCEPT 
@@ -1320,8 +1302,7 @@
         \begin{enumerate}
             \item $\forall k \in {1,...,N}$
             \begin{enumerate}
-                \item Generar una todas las subdivisiones $S_k = \{\omega_1...\omega_k\}$ de $\omega$ en $k$ 
-                \item $\forall (\omega_1,...,\omega_k) \in S_k$ simular hasta $i$ pasos de $M(\omega_j)$ $\forall j=1..k$
+                \item $\forall (\omega_1,...,\omega_k) \in S_{\omega, k}$ simular hasta $i$ pasos de $M(\omega_j)$ $\forall j=1..k$
                 \item Si $M(\omega_j)$ acepta $\forall j=1..k$ Entonces ACCEPT
             \end{enumerate}
         \end{enumerate}
@@ -1401,7 +1382,7 @@
 
 \begin{frame}{Sección Tres Cuartos de Punto}{Ejercicio 17}
     \textbf{e) El lenguaje $L_{exquisito}$, formado por aquellas MTs que aceptan menos cadenas de las que no aceptan, es indecidible. (además, descríbelo como los lenguajes de clase).}\\
-    El cardinal de un lenguaje para un alfabeto finito está acotado por $\mathcal{N}_0$. Como consecuencia, si $\langle M \rangle \in L_{exquisito} \Leftrightarrow |L(M)|<\mathcal{N}_0$.
+    El cardinal de un lenguaje para un alfabeto finito está acotado por $\mathcal{N}_0$. Como consecuencia, $\langle M \rangle \in L_{exquisito} \Leftrightarrow |L(M)|<\mathcal{N}_0$.
     Así pues, podemos describir el lenguaje como: 
     \begin{center}
         $L_{exquisito}=\{\langle M \rangle \mid |L(M)|< \mathcal{N}_0\}$
@@ -1488,6 +1469,40 @@
     \textbf{Solución}\\
     \begin{itemize}
         \item[a)] $L_1 = \{\langle M \rangle \mid \hbox{ M es una MT con } |L(M)| \geq 100\}$ (por mapping-reducción desde $HALT^{MT}$) \\~\\
+    \end{itemize}
+    Con esta construcción se cumple $\langle M, \omega \rangle \in HALT^{MT} \Leftrightarrow M_{\omega} \in L_1$, es decir, $f$ es una mapping-reducción de $HALT^{MT}$ en $L_1$. Resulta sencillo comprobar que $L_1$ es Turing-reconocible.
+    Se puede usar una máquina parecida a la del ejercicio 6, saltando el paso del conteo de estados e inicializando CONTADOR a 100.\\~\\
+    Con todo esto podemos concluir que $L_1$ es $\mathcal{RE}$-completo pues es $\mathcal{RE}$ y existe una mapping-reducción de $HALT^{MT}$ en él, siendo $HALT^{MT} \space \mathcal{RE}-$completo.\\~\\
+    $L_1 \in \mathcal{RE} \setminus \mathcal{DEC}$ 
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Tres Cuartos de Punto}{Ejercicio 18}
+    \textbf{Solución}\\
+    \begin{itemize}
+        \item[b)] $L_2=\{\langle M \rangle \mid \hbox{ M es una MT con lenguaje finito}  \}$ (por mapping-reducción desde $\overline{HALT^{MT}}$)\\~\\
+    \end{itemize}
+    Sea $\overline{HALT^{MT}} \rightarrow L_2$ definida por $f(\langle M, \omega \rangle) = M_{\omega}$ donde $M_{\omega}$ es una MT que, dada una entrada numérica $n$, acepta si y solo si $M$ termina de procesar $\omega$ en menos de $n$ pasos.
+    Esta función es computable ya que $M_\omega$ se puede constuir de la manera que sigue:
+    \begin{enumerate}
+        \item Decodificar la entrada $\langle M, \omega \rangle$
+        \item Construir el AFD que acepta las primeras 99 palabras en orden alfabético distintas a $\omega$
+        \item Construir la máquina de Turing $M_{\omega}$ que ante una entrada $\pi$ ejecuta:
+        \begin{enumerate}[a)]
+            \item Simula el AFD con la entrada $\pi$. Si acepta Entonces ACEPTA
+            \item Si $\pi \neq \omega$ RECHAZA
+            \item Simula $M(\omega)$. Si acepta o rechaza Entonces ACEPTA.
+        \end{enumerate}
+    \end{enumerate}  
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Tres Cuartos de Punto}{Ejercicio 18}
+    \textbf{Solución}\\
+    \begin{itemize}
+        \item[b)] $L_2=\{\langle M \rangle \mid \hbox{ M es una MT con lenguaje finito}  \}$ (por mapping-reducción desde $\overline{HALT^{MT}}$) \\~\\
     \end{itemize}
     Con esta construcción se cumple $\langle M, \omega \rangle \in HALT^{MT} \Leftrightarrow M_{\omega} \in L_1$, es decir, $f$ es una mapping-reducción de $HALT^{MT}$ en $L_1$. Resulta sencillo comprobar que $L_1$ es Turing-reconocible.
     Se puede usar una máquina parecida a la del ejercicio 6, saltando el paso del conteo de estados e inicializando CONTADOR a 100.\\~\\
