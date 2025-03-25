@@ -1488,7 +1488,7 @@
     \begin{itemize}
         \item[a)] $L_1 = \{\langle M \rangle \mid \hbox{ M es una MT con } |L(M)| \geq 100\}$ (por mapping-reducción desde $HALT^{MT}$)\\~\\
     \end{itemize}
-    Sea $f: HALT^{MT} \rightarrow L_1$ definida por $f(\langle M, \omega \rangle) = M_{\omega}$ donde $M_{\omega}$ es una MT que acepta 99 palabras distintas a $\omega$ y que con $\omega$ se comporta igual que $M$ pero aceptando en caso de que $M$ rechaze.
+    Sea $f: HALT^{MT} \rightarrow L_1$ definida por $f(\langle M, \omega \rangle) = \langle M_{\omega} \rangle$ donde $M_{\omega}$ es una MT que acepta 99 palabras distintas a $\omega$ y que con $\omega$ se comporta igual que $M$ pero aceptando en caso de que $M$ rechaze.
     Esta función es claramente computable ya que para hacer dicha construcción se pueden seguir los pasos:
     \begin{enumerate}
         \item Decodificar la entrada $\langle M, \omega \rangle$
@@ -1509,7 +1509,7 @@
     \begin{itemize}
         \item[a)] $L_1 = \{\langle M \rangle \mid \hbox{ M es una MT con } |L(M)| \geq 100\}$ (por mapping-reducción desde $HALT^{MT}$) \\~\\
     \end{itemize}
-    Con esta construcción se cumple $\langle M, \omega \rangle \in HALT^{MT} \Leftrightarrow M_{\omega} \in L_1$, es decir, $f$ es una mapping-reducción de $HALT^{MT}$ en $L_1$. Resulta sencillo comprobar que $L_1$ es Turing-reconocible.
+    Con esta construcción se cumple $\langle M, \omega \rangle \in HALT^{MT} \Leftrightarrow \langle M_{\omega} \rangle \in L_1$, es decir, $f$ es una mapping-reducción de $HALT^{MT}$ en $L_1$. Resulta sencillo comprobar que $L_1$ es Turing-reconocible.
     Se puede usar una máquina parecida a la del ejercicio 6, saltando el paso del conteo de estados e inicializando CONTADOR a 100.\\~\\
     Con todo esto podemos concluir que $L_1$ es $\mathcal{RE}$-completo pues es $\mathcal{RE}$ y existe una mapping-reducción de $HALT^{MT}$ en él, siendo $HALT^{MT} \space \mathcal{RE}-$completo.\\~\\
     $L_1 \in \mathcal{RE} \setminus \mathcal{DEC}$ 
@@ -1522,17 +1522,13 @@
     \begin{itemize}
         \item[b)] $L_2=\{\langle M \rangle \mid \hbox{ M es una MT con lenguaje finito}  \}$ (por mapping-reducción desde $\overline{HALT^{MT}}$)\\~\\
     \end{itemize}
-    Sea $\overline{HALT^{MT}} \rightarrow L_2$ definida por $f(\langle M, \omega \rangle) = M_{\omega}$ donde $M_{\omega}$ es una MT que, dada una entrada numérica $n$, acepta si y solo si $M$ termina de procesar $\omega$ en menos de $n$ pasos.
-    Esta función es computable ya que $M_\omega$ se puede constuir de la manera que sigue:
+    Sea $\overline{HALT^{MT}} \rightarrow L_2$ definida por $f(\langle M, \omega \rangle) = \langle M_{\omega} \rangle$ donde $M_{\omega}$ es una MT que, dada una entrada numérica $n$, acepta si y solo si $M$ termina de procesar $\omega$ en menos de $n$ pasos.
+    Esta función es computable ya que $M_\omega$ opera de la manera que sigue:
     \begin{enumerate}
-        \item Decodificar la entrada $\langle M, \omega \rangle$
-        \item Construir el AFD que acepta las primeras 99 palabras en orden alfabético distintas a $\omega$
-        \item Construir la máquina de Turing $M_{\omega}$ que ante una entrada $\pi$ ejecuta:
-        \begin{enumerate}[a)]
-            \item Simula el AFD con la entrada $\pi$. Si acepta Entonces ACEPTA
-            \item Si $\pi \neq \omega$ RECHAZA
-            \item Simula $M(\omega)$. Si acepta o rechaza Entonces ACEPTA.
-        \end{enumerate}
+        \item Dada una entrada $n$, si $n$ no es numérica, RECHAZA
+        \item Simula $n$ pasos en $M$ con entrada $\omega$ (o hasta que termine la ejecución, lo que ocurra antes).
+        \item Si $M$ ha acpetado o rechazado, ACEPTA
+        \item Si no ha terminado de ejecutarse, RECHAZA
     \end{enumerate}  
 \end{frame}
 
@@ -1543,10 +1539,9 @@
     \begin{itemize}
         \item[b)] $L_2=\{\langle M \rangle \mid \hbox{ M es una MT con lenguaje finito}  \}$ (por mapping-reducción desde $\overline{HALT^{MT}}$) \\~\\
     \end{itemize}
-    Con esta construcción se cumple $\langle M, \omega \rangle \in HALT^{MT} \Leftrightarrow M_{\omega} \in L_1$, es decir, $f$ es una mapping-reducción de $HALT^{MT}$ en $L_1$. Resulta sencillo comprobar que $L_1$ es Turing-reconocible.
-    Se puede usar una máquina parecida a la del ejercicio 6, saltando el paso del conteo de estados e inicializando CONTADOR a 100.\\~\\
-    Con todo esto podemos concluir que $L_1$ es $\mathcal{RE}$-completo pues es $\mathcal{RE}$ y existe una mapping-reducción de $HALT^{MT}$ en él, siendo $HALT^{MT} \space \mathcal{RE}-$completo.\\~\\
-    $L_1 \in \mathcal{RE} \setminus \mathcal{DEC}$ 
+    Así, si $\langle M, \omega \rangle \in \overline{HALT^{MT}}$, $M_{\omega}$ no acepta ninguna cadena (para cualquier $n$, $M$ no acaba de procesar $\omega$ en $n$ pasos) y por ello su lenguaje es finito. Tenemos entonces que $\langle M, \omega \rangle \in \overline{HALT^{MT}} \Rightarrow \langle M_{\omega} \rangle \in L_2$\\~\\
+    Ahora, si $\langle M, \omega \rangle \notin \overline{HALT^{MT}}$ (pongamos que termina en $m$ pasos), $M_\omega$ aceptará toda cadena $n$ tal que $n>m$. Como la cantidad de cadenas con esta propiedad es infinita, $\langle M, \omega \rangle \in \overline{HALT^{MT}} \Leftarrow \langle M_{\omega} \rangle \in L_2$\\~\\
+    Vemos que se cumple $\langle M, \omega \rangle \in \overline{HALT^{MT}} \Leftrightarrow \langle M_{\omega} \rangle \in L_2$, por lo que nuestra  mapping-reducción $\overline{HALT^{MT}}\le_m L_2$ es correcta. Como $\overline{HALT^{MT}}$ no es Turing-reconocible, $L_2$ tampoco.  
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
