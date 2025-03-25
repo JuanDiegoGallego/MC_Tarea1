@@ -352,19 +352,58 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Sección Medio Punto}{Ejercicio 12}
-% \vskip -1cm % Para subir (-) o bajar el texto
-    \textbf{Enunciado}
-    \begin{itemize}
-        \item Sea $L= \{ 0^i 1^j 2^k \mid i,j,k \geq0 \mbox{; si } i=1 \mbox{ entonces } j=k \} $. Este lenguaje no es regular. En este caso nos basta con que des una  demostración informal. Pero muestra que, sin embargo,  $L$ sí cumple el Lema del Bombeo para los Lenguajes Regulares.
-    \end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{Sección Medio Punto}{Ejercicio 12}
-    \textbf{Solución}\\
-    La solución es...
-\end{frame}
+    % \vskip -1cm % Para subir (-) o bajar el texto
+        \textbf{Enunciado}
+        \begin{itemize}
+            \item Sea $L= \{ 0^i 1^j 2^k \mid i,j,k \geq0 \mbox{; si } i=1 \mbox{ entonces } j=k \} $. Este lenguaje no es regular. En este caso nos basta con que des una  demostración informal. Pero muestra que, sin embargo,  $L$ sí cumple el Lema del Bombeo para los Lenguajes Regulares.
+        \end{itemize}
+    \end{frame}
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    \begin{frame}{Sección Medio Punto}{Ejercicio 12}
+        \textbf{Solución}\\
+        Vamos a descomponer $L$ como la unión disjunta de otros tres lenguajes:
+        \begin{itemize}
+            \item $L_1 = \{ 1^j2^k \mid j,k \geq 0 \}$
+            \item $L_2 = \{ 01^j2^j \mid j \geq 0 \}$
+            \item $L_3 = \{ 000^i 1^j 2^k \mid i,j,k \geq0\}$
+        \end{itemize}
+        Es claro que $L = L_1 \cup L_2 \cup L_3$ y que $L_i \cap L_j = \emptyset \text{ } \forall i \neq j$ (solo estamos controlando el número de ceros).
+        
+        Supongamos por reducción al absurdo que $L \in \mathcal{REG}$. En ese caso, debido a las propiedades de cierre de los lenguajes regurales y dado que $L_1$ y $L_3$ son claramente regulares tendríamos 
+        $$L_2 = L \cap \overline{(L_1 \cup L_3)}$$
+        Esto es absurdo ya que $L_2$ es un ejemplo clásico de lenguaje no regular (no cumple el lema de bombeo).
+        Como consecuencia, $L$ no puede ser regular.
+    \end{frame}
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    \begin{frame}{Sección Medio Punto}{Ejercicio 12}
+        \textbf{Solución}\\
+        Proposición: el lenguaje $L= \{ 0^i 1^j 2^k \mid i,j,k \geq0 \mbox{; si } i=1 \mbox{ entonces } j=k \} $ cumple de Bombeo para lenguajes regulares.\\~\\
+    
+        Demostración: la longitud de bombeo de este lenguaje es 2 ya que si $\omega \in L$ tiene una longitud mayor o igual que $2$ podemos:
+        \begin{itemize}
+            \item Si empieza por 1 o 2, bombeamos el primer carácter: \textbf{1}11222
+            \item Si empieza por un 0 y el siguiente carácter es distinto a 0, bombeamos el 0: \textbf{0}111222
+            \item Si $\omega = 00$, bombeamos el primer 0: \textbf{0}0
+            \item Si $\omega>2$, empieza por 00 y le sigue un 1 o un 2, bombeamos 00: \textbf{00}11122
+            \item Si $\omega>2$ y empieza por 000, bombeamos el primer 0: \textbf{0}0022
+        \end{itemize}
+        La longitud de bombeo no puede ser 1, ya que falla el caso $\omega = 00112$.
+    \end{frame}
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    \begin{frame}{Sección Medio Punto}{Ejercicio 12}
+        \textbf{Solución}\\
+        Proposición: el lenguaje $L_2 = \{ 01^j2^j \mid j \geq 0 \}$ no cumple el Lema de Bombeo para lenguajes regulares.\\~\\
+    
+        Demostración: supongamos que $L_2$ cumple el Lema del Bombeo y sea $p>0$ su longitud de bombeo (descartamos $p=1$ trivialmente). 
+        Sea $\omega = 01^p2^p \in L_2$. Si existiera una subdivisión de $\omega = xyz$, tal que $|xy| \leq p$ o bien $y=01^k$ con $0\leq k < p$ (en cuyo caso no se podría bombear con $i \neq 1$ pues solo puede haber un cero en la palabra)
+        o bien $y=1^k$ con $0<k\leq p$ (no pudiendo bombear con $i \neq 1$ por mantener la igualdad en con el numero de doses). Se llega entonces a un absurdo y, por tanto, $L_2$ no cumple el Lema de Bombeo.
+    \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
