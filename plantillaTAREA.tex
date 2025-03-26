@@ -1488,7 +1488,7 @@
     \begin{itemize}
         \item[a)] $L_1 = \{\langle M \rangle \mid \hbox{ M es una MT con } |L(M)| \geq 100\}$ (por mapping-reducción desde $HALT^{MT}$)\\~\\
     \end{itemize}
-    Sea $f: HALT^{MT} \rightarrow L_1$ definida por $f(\langle M, \omega \rangle) = \langle M_{\omega} \rangle$ donde $M_{\omega}$ es una MT que acepta 99 palabras distintas a $\omega$ y que con $\omega$ se comporta igual que $M$ pero aceptando en caso de que $M$ rechaze.
+    Sea $f: \{\langle M, \omega \rangle\} \rightarrow \{\langle M \rangle \}$ definida por $f(\langle M, \omega \rangle) = \langle M_{\omega} \rangle$ donde $M_{\omega}$ es una MT que acepta 99 palabras distintas a $\omega$ y que con $\omega$ se comporta igual que $M$ pero aceptando en caso de que $M$ rechaze.
     Esta función es claramente computable ya que para hacer dicha construcción se pueden seguir los pasos:
     \begin{enumerate}
         \item Decodificar la entrada $\langle M, \omega \rangle$
@@ -1522,7 +1522,7 @@
     \begin{itemize}
         \item[b)] $L_2=\{\langle M \rangle \mid \hbox{ M es una MT con lenguaje finito}  \}$ (por mapping-reducción desde $\overline{HALT^{MT}}$)\\~\\
     \end{itemize}
-    Sea $\overline{HALT^{MT}} \rightarrow L_2$ definida por $f(\langle M, \omega \rangle) = \langle M_{\omega} \rangle$ donde $M_{\omega}$ es una MT que, dada una entrada numérica $n$, acepta si y solo si $M$ termina de procesar $\omega$ en menos de $n$ pasos.
+    Sea $f: \{\langle M, \omega \rangle\} \rightarrow \{\langle M \rangle \}$ definida por $f(\langle M, \omega \rangle) = \langle M_{\omega} \rangle$ donde $M_{\omega}$ es una MT que, dada una entrada numérica $n$, acepta si y solo si $M$ termina de procesar $\omega$ en menos de $n$ pasos.
     Esta función es computable ya que $M_\omega$ opera de la manera que sigue:
     \begin{enumerate}
         \item Dada una entrada $n$, si $n$ no es numérica, RECHAZA
@@ -1571,14 +1571,14 @@
 
 \begin{frame}{Sección Tres Cuartos de Punto}{Ejercicio 19}
     \textbf{Solución}\\
-    Sea $f: HALT^{TM} \rightarrow L$ tal que $f(\langle M, \omega \rangle) = \langle M_{\omega} \rangle$ donde $M_{\omega}$ es una MT que ante una entrada $a^k b^k$:
+    Sea $f: \{\langle M, \omega \rangle\} \rightarrow \{\langle M \rangle \}$ tal que $f(\langle M, \omega \rangle) = \langle M_{\omega} \rangle$ donde $M_{\omega}$ es una MT que ante una entrada $a^k b^k$:
     \begin{enumerate}
     \item Recorre la entrada para calcular el número de aes.
     \item Simula $M(\omega)$ hasta $k$ pasos.
     \item Si $M(\omega)$ acepta o rechaza en $k$ pasos o menos Entonces RECHAZA
     \item Sino ACEPTA
     \end{enumerate}
-    La función f es claramente computable y:
+    La función $f$ es claramente computable y:
     \begin{itemize}
     \item $\langle M, \omega \rangle \in HALT^{TM}$ $\Leftrightarrow$  ($\exists n_{M,\omega} > 0$ tal que $M(\omega)$ se detiene en $n$ pasos $\Leftrightarrow n \geq n_{M,\omega}$) $\Leftrightarrow \exists n_{M,\omega} > 0$ tal que $L(M_{\omega}) = \{a^n b^n \mid n < n_{M,\omega}\} \Rightarrow |L(M_{\omega})| < + \infty$ $\Rightarrow L(M_{\omega}) \in \mathcal{REG}$.
     \item $\langle M, \omega \rangle \notin HALT^{TM}$ $\Leftrightarrow$  $\nexists n > 0$ tal que $M(\omega)$ se detiene en $n$ pasos $\Leftrightarrow L(M_{\omega}) = \{a^n b^n \mid n > 0\} \Rightarrow L(M_{\omega}) \notin \mathcal{REG}$.
@@ -1624,7 +1624,52 @@
 
 \begin{frame}{Sección Dos Puntos}{Ejercicio 20}
     \textbf{Solución}\\
-    La solución es...
+    Vamos a demostrar los dos apartados usando una misma mapping-reducción desde $HALT^{TM}$ y $\overline{HALT^{TM}}$ respectivamente, siguiendo una idea parecida a la del ejercicio 19.
+    En este caso sean $L_a = \{\langle M \rangle \mid \text{ M es MT y } L(M) \in \mathcal{CF}\}$ y $L_b = \{\langle M \rangle \mid \text{M es MT y } |L(M)|=+\infty\}$.\\~\\
+
+    Observaciones:
+    \begin{itemize}
+        \item Todo lenguaje finito es $\mathcal{CF}$
+        \item El lenguaje $\{a^n b^n c^n \mid n > 0\}$ no es $\mathcal{CF}$
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Tres Cuartos de Punto}{Ejercicio 20}
+    \textbf{Solución}\\
+    Sea $f: \{\langle M, \omega \rangle\} \rightarrow \{\langle M \rangle \}$ tal que $f(\langle M, \omega \rangle) = \langle M_{\omega} \rangle$ donde $M_{\omega}$ es una MT que ante una entrada $a^k b^k c^k$:
+    \begin{enumerate}
+        \item Recorre la entrada para calcular el número de aes.
+        \item Simula $M(\omega)$ hasta $k$ pasos.
+        \item Si $M(\omega)$ acepta o rechaza en $k$ pasos o menos Entonces RECHAZA
+        \item Sino ACEPTA
+    \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Tres Cuartos de Punto}{Ejercicio 20}
+    \textbf{Solución}\\
+    La función $f$ es claramente computable y:
+    \begin{itemize}
+        \item $\langle M, \omega \rangle \in HALT^{TM}$ $\Leftrightarrow$  ($\exists n_{M,\omega} > 0$ tal que $M(\omega)$ se detiene en $n$ pasos $\Leftrightarrow n \geq n_{M,\omega}$) $\Leftrightarrow \exists n_{M,\omega} > 0$ tal que $L(M_{\omega}) = \{a^n b^n c^n \mid n < n_{M,\omega}\} \Rightarrow |L(M_{\omega})| < + \infty$ $\Rightarrow L(M_{\omega}) \in L_a$ y $L(M_\omega) \notin L_b$.
+        \item $\langle M, \omega \rangle \notin HALT^{TM}$ $\Leftrightarrow$  $\nexists n > 0$ tal que $M(\omega)$ se detiene en $n$ pasos $\Leftrightarrow L(M_{\omega}) = \{a^n b^n c^n \mid n > 0\} \Rightarrow L(M_{\omega}) \notin L_a$ y $L(M_\omega) \in L_b$.
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Tres Cuartos de Punto}{Ejercicio 20}
+    \textbf{Solución}\\
+    Así pues, aplicando el Primer Teorema de la Reducibilidad:
+    $$
+    HALT^{TM} \leq_m L_a \Rightarrow L_a \notin \mathcal{DEC}
+    $$
+    $$
+    \overline{HALT^{TM}} \leq_m L_b \Rightarrow L_b \notin \mathcal{DEC}
+    $$
+    
 \end{frame}
 
 
