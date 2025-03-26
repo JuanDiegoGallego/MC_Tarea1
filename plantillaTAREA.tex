@@ -860,7 +860,86 @@
 
 \begin{frame}{Sección Cuarto de Punto}{Ejercicio 9}
     \textbf{Solución}\\
-    La solución es...
+    ¿Cómo llegamos a la solución?
+    \begin{enumerate}
+        \item Búsqueda por internet: No encontramos ningún artículo que mencionara el número de Gödel asociado a $U$.
+        \item Pregunta a ChatGPT: Respondía que no se suele proporcionar un número específico para la Máquina de Turing Universal.
+        \item Consulta bibliografía asignatura: En uno de los libros de la bibliografía complementaria encontramos la respuesta, en concreto en \textit{La nueva mente del emperador} de Roger Penrose.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 9}
+    \textbf{Solución}\\
+    Este libro tiene un apartado llamado \textit{La Máquina Universal de Turing}, donde se explica cómo se podría construir dicha máquina.
+    \vspace{3mm}
+    \begin{center}
+        \textbf{Idea básica}
+    \end{center}
+    
+    
+    Se busca poder numerar las máquina de Turing, para se busca codificar las instrucciones en cadenas de 0's y 1's. El autor adopta la siguiente codificación:
+    
+    \begin{center}
+        0 para 0,\hspace{1cm}10 para 1,\hspace{1cm}110 para D,\hspace{1cm}   1110 para I,\hspace{1cm}   11110 para ALTO
+    \end{center}
+
+    
+\end{frame}
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 9}
+    \textbf{Solución}\\
+    Por ejemplo, para la máquina de Turing XN+1 (Suma 1 al valor recibido como entrada) se obtiene el siguiente número:
+    
+    \begin{center}
+10101101101001011010100111010010110101111010000111010010101110100010111010100
+011010010110110101010101101010101101010100
+    \end{center}
+    Que en notación decimal estándar se corresponde con:
+    \begin{center}
+        450 813 704 461 563 958 982 113 775 643 437 908
+    \end{center}
+
+    De esta manera, XN+1 es la 450 813 704 461 563 958 982 113 775 643 437 908-ésima máquina de Turing
+\end{frame}
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 9}
+    \textbf{Solución}\\
+    La idea ahora es considerar la acción de la máquina de Turing $T_n$ sobre una cadena finita, que podremos representar en notación binaria (siguiendo nuestro esquema). Sea $m$ su representación binaria. 
+    
+    \vspace{2mm}
+    Suponiendo que la máquina se detiene, obtendremos una respuesta (los dígitos binarios que ha producido la máquina en la cinta). Consideramos nuevamente su representación binaria $p$. 
+    \vspace{2mm}
+    Podemos expresar la relación entre $n$, $m$ y $p$ de la siguiente forma:
+    \begin{center}
+        $T_n(m) = p$
+    \end{center}
+\end{frame}
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 9}
+    \textbf{Solución}\\
+    Por tanto, dados dos números $n$ y $m$ es posible calcular $p$ viendo el resultado de aplicar la n-ésima máquina de Turing a la entrada $m$.
+
+    \vspace{2mm}
+    Se debe codificar ($n$, $m$) en una cinta, utilizando algún separador. En el libro se utiliza 111110 puesto que el sistema de representación de máquinas de Turing que hemos descritos no permite la aparación de cinco 1's consecutivos.
+
+\end{frame}
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 9}
+    \textbf{Solución}\\
+    $U$ debe leer los dígitos de $n$ (que contiene la descripción de $T_n$ y aplicar las reglas correspondientes a los dígitos de $m$. 
+    \vspace{2mm}
+    Como bien dice el autor, habrá numerosas idas y vueltas de los números de $n$ a los de $m$ y viceversa. Aún así, se puede dar una lista de instrucciones que permiten realizar este proceso, que nos dan la máquina de Turing universal:
+
+    \begin{center}
+        $U(n,m) = T_n(m)$
+    \end{center}
+
+    Puesto que U es una máquina de Turing, tiene su número asociado, es decir:
+    \begin{center}
+        $U = T_u$
+    \end{center}
+    para cierto $u$. Roger Penrose obtuvo un $u$ de \textbf{1681 cifras}.
+    
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
