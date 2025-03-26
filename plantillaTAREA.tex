@@ -42,9 +42,9 @@
 \author[Carrillo G., Gallego J., Ibarrola Y.] % Para el pie de página, poner los autores abreviados separados por comas.
 {
 	\sc{Ginés Carrillo Ibáñez}\\  % Autor 1
-	\textit{Grupo 1.Subgrupo 9}\\
+	\textit{Grupo 1. Subgrupo 9}\\
 	\sc{Juan Diego Gallego Nicolás}\\ % Autor 2
-	\textit{Grupo 1.Subgrupo 9}\\ 
+	\textit{Grupo 1. Subgrupo 9}\\ 
 	\sc{Yago Ibarrola Lapeña}\\ % Autor 3
 	\textit{Grupo 1. Subgrupo 9}\\ 
 }
@@ -111,28 +111,6 @@
 
 \begin{frame}[plain]
 	\titlepage
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{Sección Cuarto de Punto}{Ejercicio 0}
-% \vskip -1cm % Para subir (-) o bajar el texto
-\textbf{Título de la subsección (o del concepto en su caso)}
-	\begin{itemize}
-	\item Texto ...
-	\item Texto ... \citep{Russell2020} ...
-		\begin{itemize}
-		\normalsize % Quítalo si quieres que se reduzca automáticamente el tamaño del texto	
-		\item[--] Texto ...
-		
-			\begin{itemize}
-			\normalsize % Quítalo si quieres que se reduzca automáticamente el tamaño del texto
-			\item[$\bullet$] Texto ...
-			\end{itemize}	
-			\end{itemize} 
-	\item Texto ...		
-	\item Texto ...
-	\end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -497,7 +475,7 @@
 \textbf{Enunciado}
 	\begin{itemize}
         \item Escribe en pseudocódigo una máquina de Turing para demostrar que el siguiente lenguaje es $\ld$. Acompaña la máquina con la explicación de los aspectos más relevantes. 
-        \item[] $$HALT_{Q-steps}^{MT}=\{\langle M \rangle \mbox{ | M es MT y } \exists w \mbox{ con la que } M \mbox{ se detiene en }|Q| \mbox{ pasos o menos}  \}$$
+        \item[] $$HALT_{Q-steps}^{MT}=\{\langle M \rangle \mbox{ | M es MT y } \exists \omega \mbox{ con la que } M \mbox{ se detiene en }|Q| \mbox{ pasos o menos}  \}$$
     \end{itemize}
 \end{frame}
 
@@ -505,7 +483,7 @@
 
 \begin{frame}{Sección Cuarto de Punto}{Ejercicio 5}
     \textbf{Solución}\\
-    Observación: $\langle M \rangle \in HALT_{Q-steps}^{MT}$ sii $\exists \omega \text{ con } | \omega | \leq Q$ con la que $M$ se detiene en Q pasos o menos.\\
+    Observación: $\langle M \rangle \in HALT_{Q-steps}^{MT}$ $\Leftrightarrow$ $\exists \omega \text{ con } | \omega | \leq Q$ con la que $M$ se detiene en Q pasos o menos.\\
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -541,10 +519,10 @@
     \textbf{Solución}\\
     Observación: $\langle M \rangle \in ACC_{Q}^{MT} \Leftrightarrow \exists p_M \in \mathbb{N}$ de forma que M acepta al menos $Q$ palabras en menos de $p_M$ pasos.\\~\\
     Dem:\\
-    $\Rightarrow$ Si $\langle M \rangle \in ACC_{Q}^{MT}$, existen al menos $Q$ palabras aceptadas por $M$.
+    $\boxed{\Rightarrow}$ Si $\langle M \rangle \in ACC_{Q}^{MT}$, existen al menos $Q$ palabras aceptadas por $M$.
     Sean $\omega_1, ..., \omega_Q$ las primeras $Q$ palabras aceptadas por $M$ en un orden lexicográfico y sean $p_1,...,p_Q$ los pasos que requiere $M$ para validar las respectivas entradas.
     Llamamos $p_M = max\{p_i:i=1..Q\}$. $p_M$ cumple la condición buscada.\\
-    $\Leftarrow M$ acepta al menos $Q$ palabras  $\Rightarrow |L(M)| \geq Q \Rightarrow \langle M \rangle \in ACC_{Q}^{MT}$  
+    $\boxed{\Leftarrow} \text{ } M$ acepta al menos $Q$ palabras  $\Rightarrow |L(M)| \geq Q \Rightarrow \langle M \rangle \in ACC_{Q}^{MT}$  
 \end{frame}
     
 
@@ -589,7 +567,7 @@
 
 \begin{frame}{Sección Cuarto de Punto}{Ejercicio 7}
     \textbf{Solución}\\
-    De hecho, cualquier lenguaje infinito, independientemente del alfabeto, va a tener subconjuntos incluso altamente indecidibles. Esto se debe a que existe una cantidad numerable de lenguajes Turing-reconocibles, pero el cardinal de las partes de un lenguaje numerable es $2^{\mathcal{N}_0}.$
+    De hecho, cualquier lenguaje infinito independientemente del alfabeto va a tener subconjuntos incluso altamente indecidibles. Esto se debe a que existe una cantidad numerable de lenguajes Turing-reconocibles, pero el cardinal de las partes de un lenguaje numerable es $2^{\mathcal{N}_0}.$
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -819,6 +797,23 @@
 
 \begin{frame}{Sección Cuarto de Punto}{Ejercicio 8}
     \textbf{Solución}\\
+    \begin{itemize}
+        \item[] $V_1 \coloneqq S(0)$
+        \item[] $V_2 \coloneqq S(V_1)$
+        \item[] If $S(V_2)!=0$ Then $V_2 \coloneqq0$
+        \item[] If $S(V_1)=0$ Then $V_1 \coloneqq S(V_2)$
+        \item[] $V_1 \coloneqq S(S(V_2))$
+    \end{itemize}
+    $C = 2^{c_1} 3^{c_2} 5^{c_3} 7^{c_4} 11^{c_5} = ...$
+    $$
+        \lfloor log_{10}(C) + 1 \rfloor \approx 9.7 \times 10^{28}
+    $$
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 8}
+    \textbf{Solución}\\
     ¿Es posible que dos fragmentos distintos tengan el mismo número?
 \end{frame}
 
@@ -829,21 +824,6 @@
     ¿Es posible que dos fragmentos distintos tengan el mismo número?\\~\\
     Teorema fundamental de la aritmética: el anillo de los números enteros $\mathbb{Z}$ es un dominio de factorización única (DFU).
     Es decir, todo número entero se descompone de forma única como producto de potencias de primos y una unidad. 
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{Sección Cuarto de Punto}{Ejercicio 8}
-    \textbf{Solución}\\
-    \begin{itemize}
-        \item[] $V_1 \coloneqq S(0)$
-        \item[] $V_2 \coloneqq S(V_1)$
-        \item[] If $S(V_2)!=0$ Then $V_2 \coloneqq0$
-        \item[] If $S(V_1)=0$ Then $V_1 \coloneqq S(V_2)$
-        \item[] $V_1 \coloneqq S(S(V_2))$
-    \end{itemize}
-    $C = 2^{c_1} 3^{c_2} 5^{c_3} 7^{c_4} 11^{c_5} = ...$\\
-    El valor de $C$ es incomputable. Podemos acotar inferiormente su número de cifras en decimal por $9.7 \times 10^{28}$.
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -877,7 +857,7 @@
     \end{center}
     
     
-    Se busca poder numerar las máquina de Turing, para se busca codificar las instrucciones en cadenas de 0's y 1's. El autor adopta la siguiente codificación:
+    Numerar las máquina de Turing. Para ello, se busca codificar las instrucciones en cadenas de 0's y 1's. El autor adopta la siguiente codificación:
     
     \begin{center}
         0 para 0,\hspace{1cm}10 para 1,\hspace{1cm}110 para D,\hspace{1cm}   1110 para I,\hspace{1cm}   11110 para ALTO
@@ -1265,7 +1245,7 @@
      \begin{center}
         C. $L \le_m  EQ^{DFA}$  
     \end{center}
-    $EQ^{DFA} = \{\langle A_1, A_2\rangle \space | \space A_1 \text{ y } A_2 \text{ son DFA tal que } L(A_1) = L(A_2)\}$  que hemos visto en clase que es decidible.
+    $EQ^{DFA} = \{\langle A_1, A_2\rangle \space \mid \space A_1 \text{ y } A_2 \text{ son DFA tal que } L(A_1) = L(A_2)\}$  que hemos visto en clase que es decidible.
     \vspace{3mm}
     Aplicando el 1er Teorema de Reducibilidad, sabemos que $L\in$ \ld, es decir: 
     \begin{center}
@@ -1514,7 +1494,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Sección Tres Cuartos de Punto}{Ejercicio 17}
-    \textbf{f) El lenguaje $$L_{not_{murciano}}=\{\langle M \rangle \mid \mbox{M es MT  tal que } |w|\neq |pijo|,  \forall w \in L(M) \}$$  no es decidible según el Teorema de Rice}\\~\\
+    \textbf{f) El lenguaje $$L_{not_{murciano}}=\{\langle M \rangle \mid \mbox{M es MT  tal que } |w|\neq |pijo|,  \forall \omega \in L(M) \}$$  no es decidible según el Teorema de Rice}\\~\\
     
     Podemos reescribir la definición del lenguaje de forma que quede más clara la aplicación del Teorema de Rice:
     \begin{center}
