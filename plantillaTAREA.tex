@@ -541,7 +541,7 @@
                 \item Simular hasta $n$ pasos de $M(\omega)$
                 \item Si $M(\omega)$ acepta en n pasos o menos Entonces CONTADOR2++
             \end{enumerate}
-            \item Si CONTADOR $\leq$ CONTADOR2 Entonces ACCEPT
+            \item Si CONTADOR $\leq$ CONTADOR2 Entonces ACEPTA
         \end{enumerate}
     \end{enumerate}
 \end{frame}
@@ -552,7 +552,7 @@
 % \vskip -1cm % Para subir (-) o bajar el texto
 \textbf{Enunciado}
 	\begin{itemize}
-        \item Demuestra por contraejemplo que no todo subconjunto de un lenguaje regular es regular y que no toodo subconjunto de un lenguaje libre de contexto es libre de contexto.
+        \item Demuestra por contraejemplo que no todo subconjunto de un lenguaje regular es regular y que no todo subconjunto de un lenguaje libre de contexto es libre de contexto.
     \end{itemize}
 \end{frame}
 
@@ -970,7 +970,7 @@
     \begin{itemize}
         \item[b)] $\mathcal{B} = \{\langle M \rangle \mid \mbox{M es MT  y  se puede diseñar un programa en Java para reconocer } L(M)\}$\\~\\
     \end{itemize}
-    Observación: si M es una MT, $L(M) \in \mathcal{DEC}$ y, por ser Java un lenguaje Turing completo, existe un programa en Java que reconoce $L(M)$. Por lo tanto $\mathcal{B} = \{\langle M \rangle \mid \mbox{M es MT}\}$ \\~\\
+    Observación: si M es una MT, $L(M) \in \mathcal{RE}$ y, por ser Java un lenguaje Turing completo, existe un programa en Java que reconoce $L(M)$. Por lo tanto $\mathcal{B} = \{\langle M \rangle \mid \mbox{M es MT}\}$ \\~\\
     
 \end{frame}
 
@@ -981,7 +981,7 @@
     \begin{itemize}
         \item[b)] $\mathcal{B} = \{\langle M \rangle \mid \mbox{M es MT  y  se puede diseñar un programa en Java para reconocer } L(M)\}$\\~\\
     \end{itemize}
-    Observación: si M es una MT, $L(M) \in \mathcal{DEC}$ y, por ser Java un lenguaje Turing completo, existe un programa en Java que reconoce $L(M)$. Por lo tanto $\mathcal{B} = \{\langle M \rangle \mid \mbox{M es MT}\}$ \\~\\
+    Observación: si M es una MT, $L(M) \in \mathcal{RE}$ y, por ser Java un lenguaje Turing completo, existe un programa en Java que reconoce $L(M)$. Por lo tanto $\mathcal{B} = \{\langle M \rangle \mid \mbox{M es MT}\}$ \\~\\
     
 
     Conclusión:\\
@@ -1345,11 +1345,48 @@
 
 \begin{frame}{Sección Medio Punto}{Ejercicio 15}
     \textbf{Solución}\\
+    $$
+    K=Acc^{MT}=\{ \langle M, \omega \rangle \mid M \text{ acepta } \omega \} \in \mathcal{DEC} \text{?}
+    $$
+    \begin{figure}
+        \includegraphics[scale=0.40]{images/DK.png}
+    \end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Medio Punto}{Ejercicio 15}
+    \textbf{Solución}\\
+    $$
+    K \in \mathcal{DEC} \Rightarrow \overline{K} \in \mathcal{DEC}
+    $$
+    \begin{figure}
+        \includegraphics[scale=0.40]{images/DK2.png}
+    \end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Medio Punto}{Ejercicio 15}
+    \textbf{Solución}\\
+    $$
+    L = \{ \langle M \rangle \mid \langle M, \langle M \rangle \rangle \in \overline{K} \} 
+    $$
+    \begin{figure}
+        \includegraphics[scale=0.29]{images/D1.png}
+    \end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Medio Punto}{Ejercicio 15}
+    \textbf{Solución}\\
     \begin{center}
-        A. $\overline{L} \in CO-\lr$, $X$ es \lr-completo y $X \le_m  L$
+        ¿Cómo se comporta $D'$ con su propia codificación?
     \end{center}
-    
-    
+    \begin{figure}
+        \includegraphics[scale=0.28]{images/D2.png}
+    \end{figure}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
