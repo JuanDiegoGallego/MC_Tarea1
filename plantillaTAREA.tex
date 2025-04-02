@@ -1348,8 +1348,9 @@
     $$
     K=Acc^{MT}=\{ \langle M, \omega \rangle \mid M \text{ acepta } \omega \} \in \mathcal{DEC} \text{?}
     $$
+    Operaremos por reducción al absurdo. Supongamos que $K\in\mathcal{DEC}$ y sea $MT_k$ la máquina de Turing que lo valida. Podemos construir ahora la máquina $MT_{\text{contradicción }k}$ que toma como entrada la codificación de una $MT$ y actúa como se ve en la figura.
     \begin{figure}
-        \includegraphics[scale=0.40]{images/DK.png}
+        \includegraphics[scale=0.4]{images/contradiccion_k.png}
     \end{figure}
 \end{frame}
 
@@ -1357,11 +1358,22 @@
 
 \begin{frame}{Sección Medio Punto}{Ejercicio 15}
     \textbf{Solución}\\
-    $$
-    K \in \mathcal{DEC} \Rightarrow \overline{K} \in \mathcal{DEC}
-    $$
+    Nos planteamos ahora cómo actúa $MT_{\text{contradicción }k}$ (en adelante abreviado como $MT_{ck}$) cuando se le pasa como entrada $\langle MT_{ck}\rangle$. Puede suceder que:
+    \begin{itemize}
+        \item $MT_{ck}$ acepta $\langle MT_{ck}\rangle$. Pero esto solo sucede si $MT_k$ rechaza $\langle MT_{ck}, MT_{ck}\rangle$. Esto implica que $MT_{ck}$ rechaza $\langle MT_{ck}\rangle$, luego hemos llegado a una contradicción.
+        \item $MT_{ck}$ rechaza $\langle MT_{ck}\rangle$. De la misma forma, esto solo sucede si $MT_k$ acepta $\langle MT_{ck}, MT_{ck}\rangle$. Esto implica que $MT_{ck}$ acepta $\langle MT_{ck}\rangle$ y volvemos a obtener una contradicción.
+        \item $MT_{ck}$ nunca termina de procesar $\langle MT_{ck}\rangle$. Esto sólo puede pasar si $MT_k$ no termina de procesar $\langle MT_{ck}, MT_{ck}\rangle$, lo que contradice su definición.
+    \end{itemize}
+    Puesto que $MT_{ck}$ esta bien construida, concluimos que la $MT_k$ que hemos supuesto no puede existir, y $K \notin\mathcal{DEC}$
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Medio Punto}{Ejercicio 15}
+    \textbf{Solución}\\
+    Para $HALT^{TM}$ actuaremos de manera similar. Sea $MT_{halt}$ una máquina de Turing que valida $HALT^{TM}$ y construimos $MT_{\text{contradicción }halt}$ (en adelante abreviado $MT_{ch}$) como se ve en la figura.
     \begin{figure}
-        \includegraphics[scale=0.40]{images/DK2.png}
+        \includegraphics[scale=0.4]{images/contradiccion_halt.png}
     \end{figure}
 \end{frame}
 
@@ -1369,24 +1381,12 @@
 
 \begin{frame}{Sección Medio Punto}{Ejercicio 15}
     \textbf{Solución}\\
-    $$
-    L = \{ \langle M \rangle \mid \langle M, \langle M \rangle \rangle \in \overline{K} \} 
-    $$
-    \begin{figure}
-        \includegraphics[scale=0.29]{images/D1.png}
-    \end{figure}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{Sección Medio Punto}{Ejercicio 15}
-    \textbf{Solución}\\
-    \begin{center}
-        ¿Cómo se comporta $D'$ con su propia codificación?
-    \end{center}
-    \begin{figure}
-        \includegraphics[scale=0.28]{images/D2.png}
-    \end{figure}
+    Esta vez nos planteamos cómo actúa $MT_{ch}$ cuando se le pasa como entrada $\langle MT_{ch}\rangle$. Las posibilidades son:
+    \begin{itemize}
+        \item $MT_{ch}$ acepta $\langle MT_{ch}\rangle$. Pero esto solo sucede si $MT_{halt}$ rechaza $\langle MT_{ch}, MT_{ch}\rangle$. Esto implica que $MT_{ch}$ nunca termina de procesar $\langle MT_{ch}\rangle$, luego hemos llegado a una contradicción.
+        \item $MT_{ch}$ nunca termina de procesar $\langle MT_{ck}\rangle$. Esto sólo puede pasar si $MT_{halt}$ acepta $\langle MT_{ch}, MT_{ch}\rangle$, lo que implica que $MT_{ch}$ con la entrada $\langle MT_{ch}\rangle$ termina en tiempo finito. Llegamos así a otra contradicción.
+    \end{itemize}
+    Puesto que $MT_{ch}$ esta bien construida, concluimos que la $MT_{halt}$ que hemos supuesto no puede existir, y $HALT^{TM}\notin\mathcal{DEC}$
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
