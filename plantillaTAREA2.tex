@@ -1,0 +1,132 @@
+%% Ejemplo de la plantilla de latex para las diapositivas del Máster en IA 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Valores para el ratio de aspecto: 43, 169 
+\documentclass[10pt, envcountsect, presentation, aspectratio=169]{beamer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Incluir fichero de estilo del máster
+\input plantillaTAREA.sty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\let\Tiny=\tiny
+%\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{pgf}
+\usepackage{latexsym}
+\usepackage{amssymb,amsmath}
+\usepackage{xspace}
+\usepackage[olditem,oldenum]{paralist}
+\usepackage{tikz}
+\usetikzlibrary{snakes,arrows,shapes}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows,automata}
+\usepackage[T1]{fontenc}
+\usepackage{psfrag}
+\usepackage{multirow}
+\usepackage{xmpmulti}
+\usepackage[absolute, overlay]{textpos}
+\usepackage{pgfpages}
+\usepackage{pgf}
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{color}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Información que aparecerá en la portada
+\title[Nombre]{Modelos de Computación}
+\subtitle{Entrega de Complejidad} % short title for footer
+
+\author[Carrillo G., Gallego J., Ibarrola Y.] % Para el pie de página, poner los autores abreviados separados por comas.
+{
+	\sc{Ginés Carrillo Ibáñez}\\  % Autor 1
+	\textit{Grupo 1. Subgrupo 9}\\
+	\sc{Juan Diego Gallego Nicolás}\\ % Autor 2
+	\textit{Grupo 1. Subgrupo 9}\\ 
+	\sc{Yago Ibarrola Lapeña}\\ % Autor 3
+	\textit{Grupo 1. Subgrupo 9}\\ 
+}
+
+\institute[GII]% % Poner las iniciales de los diferentes departamentos de los autores separadas por comas.
+{
+	\textit{Universidad de Murcia}
+}
+
+\date{2024/2025} % Curso académico
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Contenido de las diapositivas
+\setbeamerfont{normal text}{size=\normalsize} % Modifica el tamaño del texto de las diapositivas.
+\AtBeginDocument{\usebeamerfont{normal text}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\ldfa}{\ensuremath{\mathcal L_{DFA}}}
+\newcommand{\lnfa}{\ensuremath{\mathcal L_{NFA}}}
+\newcommand{\ler}{\ensuremath{\mathcal L_{ER}}}
+\newcommand{\lreg}{\ensuremath{\mathcal {REG}}}
+\newcommand{\lcf}{\ensuremath{\mathcal CF}}
+\newcommand{\lpda}{\ensuremath{\mathcal L_{PDA}}}
+\newcommand{\lpdav}{\ensuremath{\mathcal L_{PDA^v}}}
+\newcommand{\lpdad}{\ensuremath{\mathcal L_{PDAD}}}
+\newcommand{\lgr}{\ensuremath{\mathcal L_{GCF}}}
+\newcommand{\ld}{\ensuremath{\mathcal {DEC}}}
+\newcommand{\lr}{\ensuremath{\mathcal {RE}}}
+\newcommand{\halt}{\ensuremath{\mathsf{HALT}}}
+\newcommand{\fon}{\ensuremath{FO(\mathbb N)}}
+\newcommand{\pol}{\ensuremath{\mathcal P}}
+\newcommand{\npol}{\ensuremath{\mathcal{NP}}}
+\newcommand{\cnpol}{\ensuremath{\mathcal{CO-NP}}}
+\newcommand{\cnlo}{\ensuremath{\mathcal{CO-NLOG}}}
+\newcommand{\cnpols}{\ensuremath{\mathcal{CO-NPSPACE}}}
+\newcommand{\fo}{\ensuremath{FO}}
+\newcommand{\lop}{\ensuremath{LP}}
+\newcommand{\cnf}{\ensuremath{_{cnf}}}
+\newcommand{\tcnf}{\ensuremath{_{3cnf}}}
+%\newcommand{\cnf}{\ensuremath{LP_{cnf}}}
+%\newcommand{\tcnf}{\ensuremath{LP_{3cnf}}}
+\newcommand{\qlop}{\ensuremath{QLP}}
+\newcommand{\dcnf}{\ensuremath{LP_{2cnf}}}
+\newcommand{\pols}{\ensuremath{\mathcal{PSPACE}}}
+\newcommand{\npols}{\ensuremath{\mathcal{NPSPACE}}}
+\newcommand{\lo}{\ensuremath{\mathcal{LOG}}}
+\newcommand{\nlo}{\ensuremath{\mathcal{NLOG}}}
+\newcommand{\ext}{\ensuremath{\mathcal{EXPTIME}}}
+\newcommand{\extn}{\ensuremath{\mathcal{NEXPTIME}}}
+\newcommand{\exts}{\ensuremath{\mathcal{EXPSPACE}}}
+\newcommand{\ej}{{\color{green}ejemplo}}
+\newcommand{\usigma}{\ensuremath{\mathcal U}_{\Sigma}}
+\newcommand{\mt}{\ensuremath{\mathcal {MT}}} 
+\newcommand{\pnp}{Â¿\ensuremath{\mathcal{P}=\mathcal{NP}}? }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[plain]
+	\titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sección Cuarto de Punto}{Ejercicio 1}
+    % \vskip -1cm % Para subir (-) o bajar el texto
+    \textbf{Enunciado}
+    \begin{itemize}
+        \item Con los modelos de computación  siguientes,  escribe una lista  ordenada en modo ascendente según su capacidad expresiva. Entre un modelo y el siguiente establece  la relación  ($\equiv$) o ($\prec$) o  según corresponda.
+		\begin{enumerate}[I)]
+            \item El $\lambda-$Cálculo
+            \item El modelo dado por $(Q,\Sigma,\Gamma,\delta,A_0,q_0,F)$, donde  $Q$ es un conjunto finito de estados, $\Sigma$ y $\Gamma$ son alfabetos, $\delta:Q\times \Sigma_\epsilon\times\Gamma_\epsilon\rightarrow 2^{(Q\times\Gamma_\epsilon)}$ es  una función de transición, $A_0$ es el símbolo inicial de la pila, y $q_0\in Q$ es el estado inicial. 
+            \item El modelo dado por $(Q,\Sigma,\Gamma,\delta,A_0,q_0,q_f)$, donde  $Q$ es un conjunto finito de estados, $\Sigma$ y $\Gamma$ son alfabetos, $\Sigma_\epsilon=\Sigma \cup \{\epsilon\}$, $\Gamma_\epsilon=\Gamma \cup \{\epsilon\}$, $\delta:Q\times \Sigma_\epsilon\times\Gamma_\epsilon\rightarrow 2^{(Q\times\Gamma_\epsilon)}$ es  una  función de transición, $A_0$ es el símbolo inicial de la pila, y $q_0\in Q$ es el estado inicial. 
+            \item ...
+        \end{enumerate}
+	\end{itemize}
+\end{frame}
+
+\end{document}
