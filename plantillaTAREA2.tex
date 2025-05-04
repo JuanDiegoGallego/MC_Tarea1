@@ -171,7 +171,7 @@
 
     \begin{enumerate}[I]
         \item Elige un subconjunto $V_k \subseteq V$ de $k$ vértices de $G=(V,E)$
-        \item Compruba que hay un arco entre cada par de vértices de $V_k$
+        \item Comprueba que hay un arco entre cada par de vértices de $V_k$
     \end{enumerate}
 
     Por el mismo razonamiento que en el caso de $M_K$, $M_{CLIQUE}$ es una $MTND$.
@@ -229,6 +229,186 @@
 \end{frame}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Problema Decisional de la Cobertura de Vértices}{Cobertura de vértices}
+    % \vskip -1cm % Para subir (-) o bajar el texto
+    \textbf{Definición:} dado un grafo no dirigido $G=(V,E)$ una cobertura de vértices de G es un subconjunto  $V' \subset V$ tal que $\forall v, w \in V, v \neq w \text{ } (v,w)\in E$ se cumple que $v \in V'$ o bien $w\in V'$, es decir, todas las aristas de G tienen al menos un extremo tocando un vértice de $V'$.
+     \\~\\
+
+    \textbf{Ejemplo:}
+
+    \begin{itemize}
+        \item[] El conjunto de todos los vértices es una cobertura de vértices.
+    \end{itemize}
+
+    \textbf{Propiedad:}
+
+    \begin{itemize}
+        \item[] Un conjunto de vértices es una cobertura de vértices si y solo si su complemento es un conjunto independiente, es decir, ninguno de sus vértices es adyacente.
+    \end{itemize}
+    
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Problema Decisional de la Cobertura de Vértices}{Cobertura de vértices}
+    % \vskip -1cm % Para subir (-) o bajar el texto
+    En el siguiente grafo podemos encontrar varios coberturas de vértices, con distinto número de nodos seleccionados:
+    \begin{figure}
+        \includegraphics[scale=0.25]{images/T2_3_ejemploCoberturaVertices.png}
+    \end{figure} 
+\end{frame}
+
+\begin{frame}{Problema Decisional de la Cobertura de Vértices}{Cobertura de vértices}
+    % \vskip -1cm % Para subir (-) o bajar el texto
+    Sin embargo, estos subconjuntos de vértices no forman una cobertura de vértices, pues las aristas señaladas con la flecha no tienen ningún de sus extremos en el subconjunto:
+    \begin{figure}
+        \includegraphics[scale=0.25]{images/T2_3_ejemploFalloCobertura.png}
+    \end{figure} 
+\end{frame}
+
+\begin{frame}{Problema Decisional de la Cobertura de Vértices}{El lenguaje $VERTEX-COVER$}
+    % \vskip -1cm % Para subir (-) o bajar el texto
+    \textbf{Definición:} se define el lenguaje $VERTEX-COVER$ como:
+    $$
+    VERTEX-COVER:=\{\langle G, k \rangle \mid G \text{ es un g.n.d. con una cobertura de vértices formada por k nodos}\}
+    $$
+    
+
+    \textbf{Proposición:} $VERTEX-COVER \in \mathcal{NP}$
+
+    \textbf{Demostración: } Sea $M_{VERTEX-COVER}$ la $MT$ no determinista que ante una entrada $\langle G, k \rangle$:
+
+    \begin{enumerate}[I]
+        \item Elige un subconjunto $V_k \subseteq V$ de $k$ vértices de $G=(V,E)$
+        \item Comprueba que toda arista de E tiene un extremo en $V_k$
+        \item Si es así ACEPTA, y si no, RECHAZA
+    \end{enumerate}
+
+    Una vez tenemos la cobertura de vértices de tamaño k, la comprobación es polinomial, pues se deben verificar $|E|$ aristas para asegurar que al menos uno de los extremos pertenece al subconjunto elegido.
+    Es por tanto una MTND con complejidad polinómica.
+
+\end{frame}
+
+\begin{frame}{Problema Decisional de la Cobertura de Vértices}{El lenguaje $VERTEX-COVER$ es $\mathcal{NP}-$completo }
+    % \vskip -1cm % Para subir (-) o bajar el texto
+    \textbf{Teorema:} El lenguaje $VERTEX-COVER$ es $ \mathcal{NP}-$completo
+    
+
+    \textbf{Demostración: } 
+    
+    Ya hemos visto que $VERTEX-COVER \in \mathcal{NP}$. Vamos a ver ahora la completitud. 
+    
+    Para ello vamos a utilizar las siguientes propiedad, que no se demostrarán:
+    \begin{enumerate}[1]
+        \item El lenguaje $3SAT$ formado por las formulas de lógica proposicional de la forma $\bigwedge_{i=1}^n(p_1^i \vee p_2^i \vee p_3^i)$ satisfacibles es $\mathcal{NP}-$completo.
+        \item \textbf{Tercer Teorema de la Reducibilidad:} sean $L$ y $L'$ dos lenguajes con $L \leq_p L'$. Si $L$ es $\mathcal{NP}-$completo y $L'$ es $\mathcal{NP}$, entonces $L'$ es $\mathcal{NP}-$completo. 
+    \end{enumerate}
+    Si demostramos $3SAT \leq_p VERTEX-COVER$ tendremos el resultado que buscamos. 
+    
+
+\end{frame}
+
+
+\begin{frame}{Problema Decisional de la Cobertura de Vértices}{El lenguaje $VERTEX-COVER$ es $\mathcal{NP}-$completo }
+    Sea $\Phi=\bigwedge_{i=1}^n(p_1^i \vee p_2^i \vee p_3^i)$ una fórmula proposicional cualquiera. Sea $M$ la $MT$ que toma como entrada $\Phi$ y construye un grafo $G_\Phi$:
+    \begin{enumerate}
+        \item Para cada proposicion $p_i$ que aparece en $\Phi$, producimos un subgrafo formado por una arista uniendo dos vértices, a los que nombramos $p_i$ y $\overline{p_i}$. Cada uno de estos subgrafos, que se añaden a $G_\phi$, recibe el nombre de \textbf{subgrafo-variable }$p_i$.
+
+        \item Para cada cláusula en $\Phi$, se producirá un grafo formado por una tripla de nodos conectados entre sí. Este subgrafo, llamado \textbf{subgrafo-cláusula} se añade también a $G_\phi$.
+
+        \item Los tres nodos de cada subgrafo-cláusula se conectan también a los nodos de los subgrafos-variable que tienen su mismo identificador.
+    \end{enumerate}
+    Por tanto, el número total de nodos del grafo $G_\phi$ es $2m + 3l$, siendo m el número de proposiciones y l el número de cláusulas de $\Phi$. Se tomará $k = m + 2l$
+
+    Evidentemente, el proceso de generación del grafo es polinomial con respecto al número de cláusulas de $\Phi$.
+\end{frame}
+
+\begin{frame}{Problema Decisional de la Cobertura de Vértices}{El lenguaje $VERTEX\text{-}COVER$ es $\mathcal{NP}-$completo}
+    \centering
+    Vemos las tres formas de construcción del grafo $G_\phi$:
+    
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/image.png}
+        \\\small Subgrafo de variable
+        
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/image2.png}
+        \\\small Subgrafo de cláusula
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/image3.png}
+        \\\small Últimas aristas
+    \end{minipage}
+\end{frame}
+
+
+\begin{frame}{Problema Decisional de la Cobertura de Vértices}{El lenguaje $VERTEX\text{-}COVER$ es $\mathcal{NP}-$completo}
+    \centering
+    Veamos un ejemplo completo.
+
+    Sea $\Phi = (p1 \vee p2 \vee p2) \wedge  (\overline{p1} \vee \overline{p1} \vee p2)\wedge  (\overline{p2} \vee p1 \vee p1)$
+
+    El grafo $G_\Phi$ resultante sería:
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.65\linewidth]{images/T2_3_ejemploGrafo.png}
+        \caption{Grafo $G_\Phi$}
+        \label{fig:enter-label}
+    \end{figure}
+\end{frame}
+
+
+\begin{frame}{Problema Decisional de la Cobertura de Vértices}{El lenguaje $VERTEX\text{-}COVER$ es $\mathcal{NP}-$completo}
+    \textbf{Teorema:} Sea $\Phi=\bigwedge_{i=1}^k(p_1^i \vee p_2^i \vee p_3^i)$ una proposición, $\Phi \in 3SAT \Leftrightarrow G_\Phi$  tiene una cobertura de vértices con k vértices. \\~\\
+
+    \textbf{Demostración:} \\
+    $\boxed{\Rightarrow}$ Si $\Phi$ es satisfacible. Añadimos a la cobertura de vértices los nodos de los subgrafos-variable cuyo literal está a True. 
+    Ahora, en cada subgrafo-cláusula seleccionamos un nodo cuyo literal esté a True y añadimos los dos nodos restantes a la cobertura. Así, ya tenemos $k = 2m + l$ nodos en la cobertura (m es el número de cláusulas y l el número de proposiciones de $\Phi$).
+    Claramente, las aristas de los subgrafos-variable están cubiertas, al igual que las de los subgrafos-cláusula. Ahora, también se cubren las aristas entre los dos tipos de subgrafos, pues:
+    \begin{itemize}
+        \item Si $p_i$ es True, todas las aristas de la forma $(p_i,p_i)$ están cubiertas por el vértice del subgrafo-variable (Análogo para $\overline{p_i} = True$)
+        \item Si $p_i$ es False, entonces en los subgrafos cláusula donde aparezca no la habremos descartado y las aristas $(p_i,p_i)$ estarán cubiertas por el nodo del correspondiente subgrafo-cláusula.
+    \end{itemize}
+    Por tanto, el grafo $G_\Phi \in VERTEX-COVER$
+    
+\end{frame}
+
+
+\begin{frame}{Problema Decisional de la Cobertura de Vértices}{El lenguaje $VERTEX\text{-}COVER$ es $\mathcal{NP}-$completo}
+    \textbf{Teorema:} Sea $\Phi=\bigwedge_{i=1}^k(p_1^i \vee p_2^i \vee p_3^i)$ una proposición, $\Phi \in 3SAT \Leftrightarrow G_\Phi$  tiene una cobertura de vértices con k vértices. \\~\\
+
+    \textbf{Demostración:} \\
+    $\boxed{\Leftarrow}$ De igual manera, si $G_\Phi$ es un grafo con con una cobertura de $k=2m+l$ nodos, podemos mostrar que $\Phi$ es satisfacible construyendo la asignación que lo satisface.
+    La cobertura del grafo $G_\Phi$ debe contener un nodo en cada subgrafo-variable y dos en cada subgrafo-cláusula para cubrir todas las aristas de los dos tipos de subgrafo. De esta manera ya tenemos los k nodos que formarían parte de la cobertura. 
+
+    Ahora tomamos los nodos de los subgrafos-variable que están el la cobertura y asignamos True a su literal. Esta asignación satisface $\Phi$ ya que hay tres aristas conectando los nodos de cada subgrafo-cláusula con los nodos de los subgragos-variable. Pero sabemos que en cada subgrafo-cláusula solo dos nodos están en $G_ \Phi$. Por tanto, la tercera arista debe cubrirse con un nodo del subgrafo-variable que esté en $G_\Phi$. Entonces, como a estos nodos le habíamos asignado True a su literal, tenemos que se cumple la cláusula correspondiente. Esto se puede aplicar a todas las cláusulas de $\Phi$, por lo que concluimos que $\Phi$ es satisfacible.
+\end{frame}
+
+\begin{frame}{Problema Decisional de la Cobertura de Vértices}{El lenguaje $VERTEX\text{-}COVER$ es $\mathcal{NP}-$completo}
+    \centering
+    Con el ejemplo anterior, podemos ilustrar la creación de la cobertura de k nodos.
+
+    Sea $\Phi = (p1 \vee p2 \vee p2) \wedge  (\overline{p1} \vee \overline{p1} \vee p2)\wedge  (\overline{p2} \vee p1 \vee p1)$
+    
+    Esta proposición es satisfacible con $p1 = True$ y $p2 = True$
+    
+    La cobertura serían los vértices marcados en verde:
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.55\linewidth]{images/T2_3_cobertura.png}
+        \caption{Cobertura de k nodos del $G_\Phi$}
+        \label{fig:enter-label}
+    \end{figure}
+\end{frame}
 
 
 
