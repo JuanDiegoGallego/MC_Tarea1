@@ -117,7 +117,7 @@
 
 \begin{frame}{Problema Decisional de la Clique en un Grafo No Dirigido}{$k-clique$}
     % \vskip -1cm % Para subir (-) o bajar el texto
-    \textbf{Definición:} dado un grafo no dirigido $G=(V,E)$ y un entero positivo $k$, un $k-clique$ es un subgrafo de $G$ que es completo. $G'=(V',E') \subseteq (V,E)$ es $k-clique$ de $G \Leftrightarrow \frac{|V'|(|V'|-1)}{2} \Leftrightarrow$ $\forall v, w \in V', v \neq w \text{ } (v,w)\in E'$. Un $k-clique$ también puede recibir el nombre de $clique$ de orden $k$. \\~\\
+    \textbf{Definición:} dado un grafo no dirigido $G=(V,E)$ y un entero positivo $k$, un $k-clique$ es un subgrafo de $G$ que es completo. $G'=(V',E') \subseteq (V,E)$ es $k-clique$ de $G \Leftrightarrow |E'| = \frac{|V'|(|V'|-1)}{2} \Leftrightarrow$ $\forall v, w \in V', v \neq w \text{ } (v,w)\in E'$. Un $k-clique$ también puede recibir el nombre de $clique$ de orden $k$. \\~\\
 
     \textbf{Propiedades:}
 
@@ -301,7 +301,7 @@
     
     Ya hemos visto que $VERTEX-COVER \in \mathcal{NP}$. Vamos a ver ahora la completitud. 
     
-    Para ello vamos a utilizar las siguientes propiedad, que no se demostrarán:
+    Para ello vamos a utilizar las siguientes propiedades, que no se demostrarán:
     \begin{enumerate}[1]
         \item El lenguaje $3SAT$ formado por las formulas de lógica proposicional de la forma $\bigwedge_{i=1}^n(p_1^i \vee p_2^i \vee p_3^i)$ satisfacibles es $\mathcal{NP}-$completo.
         \item \textbf{Tercer Teorema de la Reducibilidad:} sean $L$ y $L'$ dos lenguajes con $L \leq_p L'$. Si $L$ es $\mathcal{NP}-$completo y $L'$ es $\mathcal{NP}$, entonces $L'$ es $\mathcal{NP}-$completo. 
@@ -315,7 +315,7 @@
 \begin{frame}{Problema Decisional de la Cobertura de Vértices}{El lenguaje $VERTEX-COVER$ es $\mathcal{NP}-$completo }
     Sea $\Phi=\bigwedge_{i=1}^n(p_1^i \vee p_2^i \vee p_3^i)$ una fórmula proposicional cualquiera. Sea $M$ la $MT$ que toma como entrada $\Phi$ y construye un grafo $G_\Phi$:
     \begin{enumerate}
-        \item Para cada proposicion $p_i$ que aparece en $\Phi$, producimos un subgrafo formado por una arista uniendo dos vértices, a los que nombramos $p_i$ y $\overline{p_i}$. Cada uno de estos subgrafos, que se añaden a $G_\phi$, recibe el nombre de \textbf{subgrafo-variable }$p_i$.
+        \item Para cada proposicion $p$ que aparece en $\Phi$, producimos un subgrafo formado por una arista uniendo dos vértices, a los que nombramos $p$ y $\overline{p}$. Cada uno de estos subgrafos, que se añaden a $G_\phi$, recibe el nombre de \textbf{subgrafo-variable }$p$.
 
         \item Para cada cláusula en $\Phi$, se producirá un grafo formado por una tripla de nodos conectados entre sí. Este subgrafo, llamado \textbf{subgrafo-cláusula} se añade también a $G_\phi$.
 
