@@ -33,6 +33,7 @@
 \usepackage{colortbl}
 \usepackage{xcolor}
 \usepackage{color}
+\usepackage{booktabs}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Información que aparecerá en la portada
@@ -100,6 +101,7 @@
 \newcommand{\usigma}{\ensuremath{\mathcal U}_{\Sigma}}
 \newcommand{\mt}{\ensuremath{\mathcal {MT}}} 
 \newcommand{\pnp}{Â¿\ensuremath{\mathcal{P}=\mathcal{NP}}? }
+\newcommand{\ssum}{\ensuremath{SUBSET\text{-}SUM}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -112,6 +114,122 @@
 \begin{frame}[plain]
 	\titlepage
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Problema Decisional de la Suma de Subconjuntos}{Definición y lenguaje asociado}
+    \textbf{Definición:} el problema de la suma de subconjuntos consiste en, dado un conjunto $X=\{x_1, \dots, x_k\}$ de enteros (posiblemente repetidos\footnote{El término para referirse a un conjunto que admite repetición es `multiconjunto'. Aun así, a lo largo de este documento nos referiremos a ellos como `conjuntos' por simplicidad.}) y un valor objetivo $t$, determinar si existe un subconjunto $S \subseteq X$ tal que $\sum _{x\in S}x = t$.\\~\\
+
+    \textbf{Definición:} se define el lenguaje $\ssum$ como:
+    $$
+    \ssum:=\{\langle X, t \rangle \mid \exists \, S\subseteq X \text{ cumpliendo }\sum _{x\in S}x = t\}
+    $$
+    
+    
+\end{frame}
+\begin{frame}{Problema Decisional de la Suma de Subconjuntos}{Ejemplos}
+    \textbf{Ejemplos:}
+    \begin{itemize}
+        \item $\langle \{4, 4, 9\}, 8\rangle \in \ssum$, ya que  $4+4=8$.
+        \item $\langle \{4, 4, 9\}, 11\rangle \notin \ssum$, ya que ningún subconjunto de $\{4, 4, 9\}$ suma 11
+        \item $\langle X, 0\rangle \in \ssum$ trivialmente para un conjunto $X$ cualquiera\footnote{Consideramos $\sum_{x\in\emptyset} x = 0$.}.
+        \item $\langle \{a, x_1, \dots, x_k\}, a\rangle \in \ssum$ trivialmente para cualquier $a$.
+        \item $\langle \{2a_1,\dots,2a_k\}, t\rangle \notin \ssum$ para cualquier $t$ impar.
+        \item $\langle \{2^0, \dots, 2^k\}, t\rangle \in \ssum$ para cualquier $0\leq t<2^{k+1}$.
+        
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Problema Decisional de la Suma de Subconjuntos}{El lenguaje $\ssum$ es $\mathcal{NP}-$completo}
+    Para demostrar la $\mathcal{NP}-$completitud de $\ssum$ vamos a necesitar las siguientes propiedades que no demostramos:
+    \begin{enumerate}[1]
+        \item El lenguaje $3SAT$ formado por las formulas de lógica proposicional de la forma $\bigwedge_{i=1}^n(p_1^i \vee p_2^i \vee p_3^i)$ satisfacibles es $\mathcal{NP}-$completo.
+        \item \textbf{Tercer Teorema de la Reducibilidad:} sean $L$ y $L'$ dos lenguajes con $L \leq_p L'$. Si $L$ es $\mathcal{NP}-$completo y $L'$ es $\mathcal{NP}$, entonces $L'$ es $\mathcal{NP}-$completo. 
+    \end{enumerate}
+    Si demostramos $\ssum \in \mathcal{NP}$ y $3SAT \leq_p \ssum$ tendremos el resultado que buscamos. 
+\end{frame}
+
+\begin{frame}{Problema Decisional de la Suma de Subconjuntos}{El lenguaje $\ssum$ es $\mathcal{NP}$}
+
+    \textbf{Proposición:} $\ssum \in \mathcal{NP}$\\~\\
+    \textbf{Demostración:} construiremos una máquina de Turing $V_{\ssum}$ que verifique una solución de $\ssum$ en tiempo polinomial.\\
+    Dada una entrada $\langle \langle X, t\rangle, S\rangle$, $V_{\ssum}$ actúa como sigue:
+    \begin{enumerate}
+        \item Comprueba que $S$ es un conjunto de enteros con suma $t$. Si no, RECHAZA.
+        \item Comprueba que $S$ es un subconjunto de $X$. Si no, RECHAZA.
+        \item ACEPTA
+    \end{enumerate}
+    Puesto que $V_{\ssum}$ termina su ejecución en tiempo polinomial, tenemos $\ssum \in \mathcal{NP}$\, como queríamos ver.
+\end{frame}
+
+\begin{frame}{Problema Decisional de la Suma de Subconjuntos}{El lenguaje $3SAT$ se polirreduce a $\ssum$}
+
+    \textbf{Proposición:} $3SAT \leq_p \ssum$ \\~\\
+    \textbf{Demostración:} si especificamos un algoritmo para, dada una fórmula $3cnf$ arbitraria $\Phi$, construir (en tiempo polinomial) un problema de suma de subconjuntos $\langle X, t\rangle$ tal que $\langle X, t\rangle \in \ssum \iff  \Phi \in 3SAT$, la proposición quedaría demostrada.\\~\\
+    La demostración continúa en las siguientes diapositivas.
+    
+\end{frame}
+\begin{frame}{Problema Decisional de la Suma de Subconjuntos}{El lenguaje $3SAT$ se polirreduce a $\ssum$}
+    Sea $\Phi = \bigwedge_{i=1}^k(p_{a_i} \vee p_{b_i} \vee p_{c_i})$ una fórmula de $l$ variables, donde $a_i,b_i, c_i\in\{1,\dots, l\}\, \forall i \in 1,\dots,k$. Llamemos también $d_i$ a la i-ésima disyunción de la fórmula, es decir, $d_i = (p_{a_i} \vee p_{b_i} \vee p_{c_i})$\\~\\
+    Para cada variable $p_i$ añadimos a $X$ dos enteros, que denotaremos $y_i$ y $z_i$. Para cada disyunción $d_i$ añadimos otros dos enteros, $g_i$ y $h_i$.\\
+    \begin{itemize}
+        \item $y_i$ tendrá $k + l - i + 1$ cifras. Su dígito más significativo será un $1$, seguido de $l-i$ ceros. Numeremos ahora las $k$ cifras restantes de izquierda a derecha (de $1$ a $k$). La cifra $j$ de $y_i$ será un $1$ si $d_j$ hace referencia a la variable $p_i$ (sin negar). Si no, será $0$.
+        \item $z_i$ se construye de manera igual a $y_i$, salvo que sus últimas $k$ cifras son $1$ si la disyunción correspondiente hace referencia a $\neg p_i$, en lugar de $p_i$.
+        \item $g_i$ y $h_i$ serán ambas un $1$ seguido de $k-i$ ceros.
+        \item $t$ estará compuesto de $l$ unos seguido de $k$ treses.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Problema Decisional de la Suma de Subconjuntos}{Ejemplo}
+    \begin{columns}
+        \column{0.5\textwidth}
+        La mejor forma de entender la construcción es mediante un ejemplo:\\~\\
+        Sea $\Phi = (p_{1} \vee p_{2} \vee p_{3})\wedge (\neg p_{1} \vee p_{2} \vee \neg p_{3})$\\~\\
+        Aquí, $k=2$ y $l=3$, luego las variables $x_i$, $y_i$, $g_i$, $h_i$ y $t$ toman los valores que se muestran en la tabla.\\~\\
+        \textbf{Observación:} Nótese que por la construcción de $X$, ningún subconjunto suyo producirá una suma con llevadas (en cada posición habrá, como mucho, $5$ unos).
+        \column{0.5\textwidth}
+        \small
+        \begin{center}
+        \renewcommand{\arraystretch}{1.2}
+        \begin{tabular}{l|*{3}{c}|*{2}{c}}
+         & $p_1$ & $p_2$ & $p_3$ & $d_1$ & $d_2$ \\
+        \midrule
+        $y_1$ & 1 & 0 & 0 & 1 & 0 \\
+        $z_1$ & 1 & 0 & 0 & 0 & 1 \\
+        $y_2$ &   & 1 & 0 & 1 & 1 \\
+        $z_2$ &   & 1 & 0 & 0 & 0 \\
+        $y_3$ &   &   & 1 & 1 & 0 \\
+        $z_3$ &   &   & 1 & 0 & 1 \\
+        \midrule
+        $g_1$ &   &   &   & 1 & 0 \\
+        $h_1$ &   &   &   & 1 & 0 \\
+        $g_2$ &   &   &   &   & 1 \\
+        $h_2$ &   &   &   &   & 1 \\
+        \midrule
+        $t$   & 1 & 1 & 1 & 3 & 3 \\
+        \end{tabular}
+        \end{center}
+    \end{columns}
+\end{frame}
+
+
+
+\begin{frame}{Problema Decisional de la Suma de Subconjuntos}{El lenguaje $3SAT$ se polirreduce a $\ssum$}
+    Veamos ahora que $\langle X, t\rangle \in \ssum \iff  \Phi \in 3SAT$:\\~\\
+    \boxed{\Rightarrow} Sea $S$ el subconjunto de $X$ de suma $t$. Es fácil ver que para cualquier $i\in\{1,\dots,l\}$, exactamente uno de entre $y_i$ y $z_i$ pertenecerá a $S$ (recordemos que no hay llevadas). Asignemos a $p_i$ el valor $TRUE$ si $y_i=1$ y $FALSE$ si $z_i=1$. \\~\\
+    Necesariamente, la asignación realizada satisface $\Phi$, por el siguiente razonamiento:\\
+    Para cada disyunción, su dígito asociado en la suma debe ser igual a $3$. Dado que de los $g_i$ y $h_i$ solo se pueden obtener $2$ unos, el tercero debe venir de uno de los $y_i$ o $z_i$ de $S$. Pero entonces, por construcción, el valor de verdad de $p_i$ hará que esa disyunción se evalúe a $TRUE$.\\~\\
+    \boxed{\Leftarrow} Tenemos una asignación de variables que satisface $\Phi$. Construimos $S$ de la siguiente forma:\\
+    Si $p_i = TRUE$, $y_i\in S$, si no, $z_i\in S$. De esta forma, las $l$ primeras cifras de la suma son $1$. Puesto que la asignación satisface $\Phi$, tendremos una suma de al menos $1$ en cada uno de los últimos $k$ dígitos. Finalmente tomamos los $g_i$ y $h_i$ que sean necesarios hasta que la suma total sea igual a $t$.
+    
+\end{frame}
+
+\begin{frame}{Problema Decisional de la Suma de Subconjuntos}{El lenguaje $\ssum$ es $\mathcal{NP}-$completo}
+    Finalmente, es sencillo comprobar que esta construcción se puede realizar en tiempo polinomial (particularmente, del orden de $(k+l)^2$ operaciones sencillas).\\~\\
+    Hemos obtenido, por tanto, una polirreducción de $3SAT$ a $\ssum$, como buscábamos. \\~\\ 
+
+    Aplicando directamente el \textbf{Tercer Teorema de la Reducibilidad}, tenemos que $\ssum \in \mathcal{NP}-$completo. $\boxed{ }$
+\end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
