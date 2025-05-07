@@ -471,12 +471,15 @@
     \end{minipage}
 \end{frame}
 
+\definecolor{palered}{rgb}{1.0, 0.3, 0.3}
+\definecolor{palegreen}{rgb}{0.5, 0.8, 0.5}
+\definecolor{paleblue}{rgb}{0.3, 0.3, 1.0}
 
-\begin{frame}{Problema Decisional de la Cobertura de Vértices}{El lenguaje $VERTEX\text{-}COVER$ es $\mathcal{NP}-$completo}
+\begin{frame}{Problema decisional de la Cobertura de Vértices}{El lenguaje $VERTEX\text{-}COVER$ es $\mathcal{NP}-$completo}
     \centering
     Veamos un ejemplo completo.
 
-    Sea $\Phi = (p1 \vee p2 \vee p2) \wedge  (\overline{p1} \vee \overline{p1} \vee p2)\wedge  (\overline{p2} \vee p1 \vee p1)$
+    Sea $\Phi = \textcolor{palered}{(p1 \vee p2 \vee p2)} \wedge \textcolor{palegreen}{(\overline{p1} \vee \overline{p1} \vee p2)} \wedge \textcolor{paleblue}{(\overline{p2} \vee p1 \vee p1)}$
 
     El grafo $G_\Phi$ resultante sería:
     \begin{figure}
