@@ -318,12 +318,15 @@
     Es claro que el proceso de generación del grafo es polinomial con respecto al número de cláusulas de $\Phi$
 \end{frame}
 
+\definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
+\definecolor{fucsia}{rgb}{1.0, 0.0, 1.0}
+
 \begin{frame}{Problema Decisional de la Clique en un Grafo No Dirigido}{El lenguaje $CLIQUE$ es $\mathcal{NP}-$completo}
     Tomemos como ejemplo la fórmula de la tarea: 
     $$
-    \Phi = (p_1 \vee p_2 \vee p_3) \wedge (\neg p_2 \vee p_3 \vee p_4) \wedge (p_3 \vee p_4 \vee p_5) \wedge(\neg p_4 \vee \neg p_5 \vee p_6)
+    \Phi = \textcolor{red}{(p_1 \vee p_2 \vee p_3)} \wedge \textcolor{blue}{(\neg p_2 \vee p_3 \vee p_4)} \wedge \textcolor{darkgreen}{(p_3 \vee p_4 \vee p_5)} \wedge \textcolor{fucsia}{(\neg p_4 \vee \neg p_5 \vee p_6)}
     $$
-    Aplicando el proceso definido en la diapositiva anterior, el grafo $G_\Phi$ es el complementario al siguiente\footnote{Es más fácil de visualizar el complementario ya que el grafo tiene muchos vértices}:
+    Aplicando el proceso definido en la diapositiva anterior, el grafo $G_\Phi$ es el complementario al siguiente\footnote{Es más fácil de visualizar el complementario ya que el grafo tiene 41 aristas}:
     \begin{figure}
         \includegraphics[scale=0.15]{images/T2_2_ejemplophi.png}
     \end{figure} 
@@ -337,11 +340,11 @@
     Por tanto, el grafo completo formado por dichos vértices es un $k-clique$ de $G_\Phi \in CLIQUE$.
 
     $\boxed{\Leftarrow}$ De igual manera, si $G_\Phi$ es un grafo con un $k-clique$, este debe estar formado por vértices que corresponden a literales de cláusulas distintas y no contradictorios dos a dos.
-    Estos literales tomados como verdaderos forman una asignación satisfactoria para $\Phi$ con lo que $Phi \in 3SAT$.
+    Estos literales tomados como verdaderos forman una asignación satisfactoria para $\Phi$ con lo que $\Phi \in 3SAT$.
 \end{frame}
 
 \begin{frame}{Problema Decisional de la Clique en un Grafo No Dirigido}{El lenguaje $CLIQUE$ es $\mathcal{NP}-$completo}
-    En suma, la aplicación que transforma una proposición $\Phi=\bigwedge_{i=1}^k(p_1^i \vee p_2^i \vee p_3^i)$ en una grafo $G_\Phi$ es polinómica y cumple $Phi \in 3SAT \Leftrightarrow G_\Phi \in CLIQUE$. Esto significa que es una polirreducción. \\~\\ 
+    En suma, la aplicación que transforma una proposición $\Phi=\bigwedge_{i=1}^k(p_1^i \vee p_2^i \vee p_3^i)$ en una grafo $G_\Phi$ es polinómica y cumple $\Phi \in 3SAT \Leftrightarrow G_\Phi \in CLIQUE$. Esto significa que es una polirreducción. \\~\\ 
 
     Aplicando directamente el \textbf{Tercer Teorema de la Reducibilidad}, $G_\Phi \in \mathcal{NP}-$completo. $\boxed{ }$
 \end{frame}
@@ -363,7 +366,7 @@
     \textbf{Propiedad:}
 
     \begin{itemize}
-        \item[] Un conjunto de vértices es una cobertura de vértices si y solo si su complemento es un conjunto independiente, es decir, ninguno de sus vértices es adyacente.
+        \item[] Un conjunto de vértices es una cobertura de vértices si y solo si su complementario es un conjunto independiente, es decir, ninguno de sus vértices es adyacente.
     \end{itemize}
     
 \end{frame}
